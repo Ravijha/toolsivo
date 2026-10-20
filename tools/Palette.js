@@ -53,7 +53,7 @@ export default function Palette() {
       ctx.textAlign = "center";
       ctx.fillText(col.toUpperCase(), i * 300 + 150, 540);
     });
-    downloadBlob(await canvasToBlob(c, "image/png"), "toolora-palette.png");
+    downloadBlob(await canvasToBlob(c, "image/png"), "toolsivo-palette.png");
   };
 
   return (

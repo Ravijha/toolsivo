@@ -22,17 +22,17 @@ function diff(A, B) {
   return out;
 }
 
-const left = `Toolora is a collection of online tools.
+const left = `Toolsivo is a collection of online tools.
 It works in your browser.
 Files are processed locally.
 Pricing: free for everyone.
-Contact: hello@toolora.com`;
-const right = `Toolora is a collection of 40+ online tools.
+Contact: hello@toolsivo.com`;
+const right = `Toolsivo is a collection of 40+ online tools.
 It works in your browser.
 Files are processed locally and never uploaded.
 Pricing: free for everyone.
 No sign-up required.
-Contact: hello@toolora.com`;
+Contact: hello@toolsivo.com`;
 
 export default function TextCompare() {
   const [a, setA] = useState(left);

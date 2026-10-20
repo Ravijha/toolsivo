@@ -24,11 +24,11 @@ const features = [
 ];
 
 const faqs = [
-  { q: "Are my files uploaded anywhere?", a: "No. Every Toolora tool runs entirely in your browser using JavaScript, HTML Canvas and Web APIs. Your images, PDFs and text never leave your device." },
-  { q: "Is Toolora really free?", a: "Yes. All 40+ tools are completely free to use with no sign-up, no hidden limits and no watermarks added to your files." },
+  { q: "Are my files uploaded anywhere?", a: "No. Every Toolsivo tool runs entirely in your browser using JavaScript, HTML Canvas and Web APIs. Your images, PDFs and text never leave your device." },
+  { q: "Is Toolsivo really free?", a: "Yes. All 40+ tools are completely free to use with no sign-up, no hidden limits and no watermarks added to your files." },
   { q: "Which browsers are supported?", a: "Any modern browser — Chrome, Edge, Firefox, Safari and their mobile versions. For the best experience keep your browser up to date." },
   { q: "How accurate are the Indian tax and GST calculators?", a: "They follow the current published slabs and rates (FY 2025-26 for income tax). They’re great for planning, but always confirm final figures with a tax professional." },
-  { q: "Can I use Toolora offline?", a: "Once a tool page has loaded, most tools keep working without a connection because all the processing happens on your device." },
+  { q: "Can I use Toolsivo offline?", a: "Once a tool page has loaded, most tools keep working without a connection because all the processing happens on your device." },
 ];
 
 export default function Home() {
@@ -136,7 +136,7 @@ export default function Home() {
       <section className="section">
         <div className="container">
           <div className="section-head">
-            <span className="eyebrow">Why Toolora</span>
+            <span className="eyebrow">Why Toolsivo</span>
             <h2>Built to be fast, private and delightful</h2>
           </div>
           <div className="feat-grid">
@@ -174,7 +174,7 @@ export default function Home() {
         <div className="container">
           <div className="cta">
             <h2>Ready to get things done?</h2>
-            <p>Bookmark Toolora for the everyday jobs — resize, merge, calculate, format and download. No sign-up required.</p>
+            <p>Bookmark Toolsivo for the everyday jobs — resize, merge, calculate, format and download. No sign-up required.</p>
             <Link href="/tools" className="btn btn-lg">Browse all {tools.length} tools <ArrowRight size={18} /></Link>
           </div>
         </div>

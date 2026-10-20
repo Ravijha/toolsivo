@@ -13,9 +13,9 @@ const library = [
   ["Numbers", "-?\\d+(?:\\.\\d+)?"],
   ["Words", "\\b\\w+\\b"],
 ];
-const sample = `Contact us at hello@toolora.com or support@example.co.in
+const sample = `Contact us at hello@toolsivo.com or support@example.co.in
 Call +91 98765 43210 or 9123456789 — office PIN 560001.
-Visit https://toolora.com/tools on 15/08/2026. Brand colour: #7c5cff`;
+Visit https://toolsivo.com/tools on 15/08/2026. Brand colour: #7c5cff`;
 
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 

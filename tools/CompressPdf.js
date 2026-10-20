@@ -33,7 +33,7 @@ export default function CompressPdf() {
       let blob;
       if (mode === "lossless") {
         const doc = await PDFDocument.load(bytes, { ignoreEncryption: true });
-        doc.setProducer("Toolora"); doc.setCreator("Toolora");
+        doc.setProducer("Toolsivo"); doc.setCreator("Toolsivo");
         blob = await savePdf(doc);
         setProgress(100);
       } else {

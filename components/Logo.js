@@ -34,7 +34,7 @@ export default function Logo({ size = 36, showDomain = false }) {
     <span className="logo">
       <LogoMark size={size} />
       <span className="logo-word">
-        tool<span className="logo-ora">ora</span>
+        tool<span className="logo-ora">sivo</span>
         {showDomain && <span className="logo-dom">.com</span>}
       </span>
     </span>

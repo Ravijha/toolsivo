@@ -33,7 +33,7 @@ const samples = {
 <html lang="en">
   <head>
     <!-- Page title -->
-    <title>Toolora demo</title>
+    <title>Toolsivo demo</title>
     <style>
       body { margin: 0px; padding: 0px; font-family: system-ui, sans-serif; }
       .card  >  h1 { color : #7c5cff ; opacity: 0.9; }

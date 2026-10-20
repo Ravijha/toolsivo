@@ -1,7 +1,7 @@
 import ToolExplorer from "@/components/ToolExplorer";
 import { tools } from "@/lib/tools";
 
-export const metadata = { title: "All Tools", description: "Browse every free Toolora tool — image, PDF, calculators, developer, text and design utilities." };
+export const metadata = { title: "All Tools", description: "Browse every free Toolsivo tool — image, PDF, calculators, developer, text and design utilities." };
 
 export default function AllTools() {
   return (

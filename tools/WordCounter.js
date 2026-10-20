@@ -4,7 +4,7 @@ import { Trash2 } from "lucide-react";
 import { Stat, CopyBtn } from "@/components/ui";
 
 const STOP = new Set("a an the and or but if of to in on at by for with from as is are was were be been it its this that these those i you he she we they them his her our your their not no so do does did have has had will would can could should may might just than then there here what which who whom when where why how all any each few more most other some such only own same too very s t into over under about up out".split(" "));
-const sample = "Toolora brings together fast, private tools for everyday tasks. Count words, characters and sentences instantly. Your text never leaves your browser, so it stays private.\n\nPaste an essay, a blog post or a tweet to see reading time, speaking time and keyword density at a glance.";
+const sample = "Toolsivo brings together fast, private tools for everyday tasks. Count words, characters and sentences instantly. Your text never leaves your browser, so it stays private.\n\nPaste an essay, a blog post or a tweet to see reading time, speaking time and keyword density at a glance.";
 
 export default function WordCounter() {
   const [text, setText] = useState(sample);

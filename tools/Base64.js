@@ -18,7 +18,7 @@ const decBytes = (b64) => {
 };
 
 function TextMode() {
-  const [input, setInput] = useState("Hello, Toolora! नमस्ते 👋");
+  const [input, setInput] = useState("Hello, Toolsivo! नमस्ते 👋");
   const [dir, setDir] = useState("encode");
   const [urlSafe, setUrlSafe] = useState(false);
   const res = useMemo(() => {

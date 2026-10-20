@@ -10,7 +10,7 @@ export default function Watermark() {
   const [file, setFile] = useState(null);
   const [img, setImg] = useState(null);
   const [kind, setKind] = useState("text");
-  const [text, setText] = useState("© Toolora.com");
+  const [text, setText] = useState("© Toolsivo.com");
   const [logo, setLogo] = useState(null);
   const [color, setColor] = useState("#ffffff");
   const [size, setSize] = useState(6);

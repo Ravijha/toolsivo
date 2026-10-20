@@ -11,8 +11,8 @@ export default function Toaster() {
       clearTimeout(t);
       t = setTimeout(() => setMsg(null), 2200);
     };
-    window.addEventListener("toolora:toast", on);
-    return () => window.removeEventListener("toolora:toast", on);
+    window.addEventListener("toolsivo:toast", on);
+    return () => window.removeEventListener("toolsivo:toast", on);
   }, []);
   if (!msg) return null;
   return (

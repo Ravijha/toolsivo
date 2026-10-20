@@ -37,10 +37,10 @@ export default function CommandPalette() {
     };
     const onOpen = () => setOpen(true);
     window.addEventListener("keydown", onKey);
-    window.addEventListener("toolora:palette", onOpen);
+    window.addEventListener("toolsivo:palette", onOpen);
     return () => {
       window.removeEventListener("keydown", onKey);
-      window.removeEventListener("toolora:palette", onOpen);
+      window.removeEventListener("toolsivo:palette", onOpen);
     };
   }, []);
 

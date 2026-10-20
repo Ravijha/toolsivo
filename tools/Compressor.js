@@ -131,7 +131,7 @@ export default function Compressor() {
           </Field>
         </div>
         {ready.length > 1 && (
-          <button className="btn btn-primary btn-lg" onClick={async () => downloadBlob(await makeZip(ready.map((i) => ({ name: nameFor(i), data: i.out }))), "toolora-compressed.zip")}>
+          <button className="btn btn-primary btn-lg" onClick={async () => downloadBlob(await makeZip(ready.map((i) => ({ name: nameFor(i), data: i.out }))), "toolsivo-compressed.zip")}>
             <FileArchive size={18} /> Download all (ZIP)
           </button>
         )}

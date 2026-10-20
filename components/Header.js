@@ -8,7 +8,7 @@ import { CatIcon } from "./ToolIcon";
 import { categories, toolsIn } from "@/lib/tools";
 
 export function openPalette() {
-  window.dispatchEvent(new Event("toolora:palette"));
+  window.dispatchEvent(new Event("toolsivo:palette"));
 }
 
 function ThemeToggle() {
@@ -17,7 +17,7 @@ function ThemeToggle() {
   const toggle = () => {
     const next = theme === "dark" ? "light" : "dark";
     document.documentElement.dataset.theme = next;
-    try { localStorage.setItem("toolora-theme", next); } catch {}
+    try { localStorage.setItem("toolsivo-theme", next); } catch {}
     setTheme(next);
   };
   return (
@@ -44,7 +44,7 @@ export default function Header() {
     <>
       <header className={`header ${scrolled ? "scrolled" : ""}`}>
         <div className="container header-inner">
-          <Link href="/" aria-label="Toolora home"><Logo size={36} /></Link>
+          <Link href="/" aria-label="Toolsivo home"><Logo size={36} /></Link>
           <nav className="nav" aria-label="Main">
             <div className="nav-item">
               <button className={`nav-link ${path.startsWith("/category") ? "active" : ""}`}>

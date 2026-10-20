@@ -1,4 +1,4 @@
-# Toolora.com
+# Toolsivo.com
 
 40 free, private, in-browser tools built with Next.js (App Router), React, HTML Canvas and Web APIs.
 Nothing is uploaded — every file is processed on the user's device.

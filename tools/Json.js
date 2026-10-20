@@ -4,7 +4,7 @@ import { Download, Wand2, Minimize2, Trash2 } from "lucide-react";
 import { Seg, Toggle, CopyBtn, Msg, Stat } from "@/components/ui";
 import { downloadText, formatBytes } from "@/lib/file";
 
-const sample = '{"name":"Toolora","tools":42,"free":true,"categories":["image","pdf","calculators"],"meta":{"private":true,"uploads":null,"rating":4.9}}';
+const sample = '{"name":"Toolsivo","tools":42,"free":true,"categories":["image","pdf","calculators"],"meta":{"private":true,"uploads":null,"rating":4.9}}';
 
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 function highlight(json) {

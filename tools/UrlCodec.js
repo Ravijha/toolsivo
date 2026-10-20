@@ -4,7 +4,7 @@ import { ArrowDownUp } from "lucide-react";
 import { Seg, CopyBtn, Msg } from "@/components/ui";
 
 export default function UrlCodec() {
-  const [input, setInput] = useState("https://toolora.com/search?q=merge pdf&lang=हिन्दी&ref=home#top");
+  const [input, setInput] = useState("https://toolsivo.com/search?q=merge pdf&lang=हिन्दी&ref=home#top");
   const [dir, setDir] = useState("encode");
   const [scope, setScope] = useState("component");
 

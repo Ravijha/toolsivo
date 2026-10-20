@@ -60,7 +60,7 @@ export default function MergePdf() {
         const pages = await out.copyPages(src, src.getPageIndices());
         pages.forEach((p) => out.addPage(p));
       }
-      downloadBlob(await savePdf(out), "toolora-merged.pdf");
+      downloadBlob(await savePdf(out), "toolsivo-merged.pdf");
     } catch (e) {
       setErr("Merging failed: " + e.message);
     }

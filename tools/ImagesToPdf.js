@@ -61,7 +61,7 @@ export default function ImagesToPdf() {
       const dw = iw * s, dh = ih * s;
       page.drawImage(embedded, { x: (pw - dw) / 2, y: (ph - dh) / 2, width: dw, height: dh });
     }
-    downloadBlob(await savePdf(doc), "toolora-images.pdf");
+    downloadBlob(await savePdf(doc), "toolsivo-images.pdf");
     setBusy(false);
   };
 

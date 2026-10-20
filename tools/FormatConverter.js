@@ -53,7 +53,7 @@ export default function FormatConverter({ to = "image/png", accept = "image/*", 
 
   const zipAll = async () => {
     const zip = await makeZip(ready.map((i) => ({ name: nameFor(i), data: i.out })));
-    downloadBlob(zip, `toolora-${labels[to].toLowerCase()}-images.zip`);
+    downloadBlob(zip, `toolsivo-${labels[to].toLowerCase()}-images.zip`);
   };
 
   if (!items.length)

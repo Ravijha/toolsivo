@@ -21,7 +21,7 @@ export default function Slug() {
   const [lower, setLower] = useState(true);
   const [stop, setStop] = useState(false);
   const [max, setMax] = useState("");
-  const [base, setBase] = useState("https://toolora.com/blog/");
+  const [base, setBase] = useState("https://toolsivo.com/blog/");
 
   const slugs = useMemo(() => text.split("\n").filter((l) => l.trim()).map((l) => slugify(l, { sep, lower, stop, max: +max || 0 })), [text, sep, lower, stop, max]);
 

@@ -17,7 +17,7 @@ export async function generateMetadata({ params }) {
   if (!t) return {};
   return {
     title: `${t.name} — Free Online Tool`,
-    description: `${t.desc} Free, fast and private — runs entirely in your browser on Toolora.`,
+    description: `${t.desc} Free, fast and private — runs entirely in your browser on Toolsivo.`,
     alternates: { canonical: `/tools/${t.slug}` },
   };
 }

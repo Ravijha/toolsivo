@@ -9,12 +9,12 @@ const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakart
 const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono", display: "swap" });
 
 export const metadata = {
-  metadataBase: new URL("https://toolora.com"),
-  title: { default: "Toolora — Free Online Image, PDF, Calculator & Developer Tools", template: "%s · Toolora" },
+  metadataBase: new URL("https://toolsivo.com"),
+  title: { default: "Toolsivo — Free Online Image, PDF, Calculator & Developer Tools", template: "%s · Toolsivo" },
   description:
-    "Toolora offers 40+ free online tools: image cropper, compressor, passport photo maker, PDF merge & split, EMI, GST & salary calculators, JSON formatter, regex tester and more. 100% in-browser and private.",
+    "Toolsivo offers 40+ free online tools: image cropper, compressor, passport photo maker, PDF merge & split, EMI, GST & salary calculators, JSON formatter, regex tester and more. 100% in-browser and private.",
   keywords: ["online tools", "image compressor", "merge pdf", "gst calculator", "emi calculator", "json formatter", "passport photo"],
-  openGraph: { title: "Toolora — Every tool you need, right in your browser", siteName: "Toolora", type: "website" },
+  openGraph: { title: "Toolsivo — Every tool you need, right in your browser", siteName: "Toolsivo", type: "website" },
 };
 
 export const viewport = {
@@ -24,7 +24,7 @@ export const viewport = {
   ],
 };
 
-const themeScript = `(function(){try{var t=localStorage.getItem('toolora-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t}catch(e){}})()`;
+const themeScript = `(function(){try{var t=localStorage.getItem('toolsivo-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t}catch(e){}})()`;
 
 export default function RootLayout({ children }) {
   return (

@@ -23,7 +23,7 @@ const cases = [
 ];
 
 export default function CaseConverter() {
-  const [text, setText] = useState("the quick brown fox jumps over the lazy dog. toolora makes text easy!");
+  const [text, setText] = useState("the quick brown fox jumps over the lazy dog. toolsivo makes text easy!");
   const [active, setActive] = useState(null);
 
   return (

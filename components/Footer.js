@@ -24,7 +24,7 @@ export default function Footer() {
           ))}
         </div>
         <div className="footer-bottom">
-          <span>© {new Date().getFullYear()} Toolora.com — All rights reserved.</span>
+          <span>© {new Date().getFullYear()} Toolsivo.com — All rights reserved.</span>
           <span style={{ display: "flex", gap: 18, alignItems: "center" }}>
             <Link href="/tools">All tools</Link>
             <Link href="/privacy">Privacy</Link>
