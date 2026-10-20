@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Toolora.com
 
 40 free, private, in-browser tools built with Next.js (App Router), React, HTML Canvas and Web APIs.
@@ -30,3 +31,6 @@ npm run build && npm start
 3. Register it in `components/ToolRenderer.js`.
 
 Tax/GST calculators use FY 2025-26 rules and are estimates only.
+=======
+# toolsivo
+>>>>>>> e223c9c84aacbe862baa897be1b41d29de43777d
