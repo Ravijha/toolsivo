@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Toolora.com
 
 40 free, private, in-browser tools built with Next.js (App Router), React, HTML Canvas and Web APIs.
@@ -9,7 +8,8 @@ Nothing is uploaded — every file is processed on the user's device.
 ```bash
 npm install      # also copies PDF.js into public/pdfjs
 npm run dev      # http://localhost:3000
-npm run build && npm start
+npm run build    # static site in out/
+npm start        # preview out/ locally
 ```
 
 ## Structure
@@ -31,6 +31,7 @@ npm run build && npm start
 3. Register it in `components/ToolRenderer.js`.
 
 Tax/GST calculators use FY 2025-26 rules and are estimates only.
-=======
-# toolsivo
->>>>>>> e223c9c84aacbe862baa897be1b41d29de43777d
+
+## Deploy (GitHub Pages)
+
+Pushing to `main` runs `.github/workflows/deploy.yml`. In the repo go to **Settings → Pages → Source** and pick **GitHub Actions**.
