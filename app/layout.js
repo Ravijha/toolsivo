@@ -67,12 +67,25 @@ export const viewport = {
   ],
 };
 
-const themeScript = `(function(){try{var t=localStorage.getItem('toolsivo-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t}catch(e){}})()`;
+const GA_ID = "G-3EHG6T7BWM";
+
+const themeScript =`(function(){try{var t=localStorage.getItem('toolsivo-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t}catch(e){}})()`;
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${jakarta.variable} ${mono.variable}`} suppressHydrationWarning>
       <head>
+        {/* Google tag (gtag.js) */}
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '${GA_ID}');`,
+          }}
+        />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <JsonLd data={siteSchema} />
         {SITE.adsenseClient && (

@@ -65,7 +65,7 @@ const sections = [
     id: "cookies", title: "Cookies and web beacons",
     body: (
       <>
-        <p>Cookies are small text files stored on your device. {SITE.name} itself does not use cookies to track you. However, third-party services we use — such as Google AdSense — may place and read cookies, web beacons or similar technologies on your browser to serve and measure advertisements.</p>
+        <p>Cookies are small text files stored on your device. We use Google Analytics, which sets cookies to help us understand how visitors use the site (for example, which tools are most popular) in aggregate. Third-party services we use — such as Google AdSense — may also place and read cookies, web beacons or similar technologies on your browser to serve and measure advertisements. You can opt out of Google Analytics with the {ext("https://tools.google.com/dlpage/gaoptout", "Google Analytics opt-out browser add-on")}.</p>
         <p>You can choose to disable or delete cookies through your browser settings. Note that some features of third-party services may not work correctly without them.</p>
       </>
     ),
@@ -92,6 +92,7 @@ const sections = [
         <p>We work with a small number of trusted providers. Each has its own privacy policy:</p>
         <ul>
           <li><strong>GitHub Pages</strong> — website hosting ({ext("https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement", "privacy statement")}).</li>
+          <li><strong>Google Analytics</strong> — anonymous usage statistics ({ext("https://policies.google.com/technologies/partner-sites", "how Google uses data")}).</li>
           <li><strong>Google AdSense</strong> — advertising ({ext("https://policies.google.com/privacy", "privacy policy")}).</li>
           <li><strong>FormSubmit</strong> — delivers contact form messages to our inbox ({ext("https://formsubmit.co/", "formsubmit.co")}).</li>
           <li><strong>Google Fonts</strong> — web fonts, self-hosted at build time so no request is made to Google when you browse.</li>
