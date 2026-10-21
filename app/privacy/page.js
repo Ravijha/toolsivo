@@ -1,20 +1,156 @@
-export const metadata = { title: "Privacy Policy" };
+import Link from "next/link";
+import LegalPage from "@/components/LegalPage";
+import { SITE, pageMeta } from "@/lib/site";
+
+export const metadata = pageMeta({
+  title: "Privacy Policy",
+  description: "Read how Toolsivo protects your privacy: files are processed in your browser and never uploaded, how we use cookies and Google AdSense, and your rights under GDPR and Indian law.",
+  path: "/privacy/",
+  keywords: ["toolsivo privacy policy", "privacy", "cookies", "google adsense", "gdpr"],
+});
+
+const ext = (href, text) => <a href={href} target="_blank" rel="noopener noreferrer">{text}</a>;
+
+const sections = [
+  {
+    id: "overview", title: "Overview",
+    body: (
+      <>
+        <p>This Privacy Policy explains how {SITE.name} (“we”, “us”, “our”) collects, uses and protects information when you visit our website and use our free online tools (the “Service”). By using the Service you agree to the practices described in this policy.</p>
+        <p>Our core principle is simple: <strong>the files and text you work with in our tools stay on your device.</strong></p>
+      </>
+    ),
+  },
+  {
+    id: "files", title: "Files and data you process",
+    body: (
+      <>
+        <p>All image, PDF, text, developer and calculator tools run entirely inside your web browser using JavaScript, HTML Canvas and standard Web APIs. When you select a file:</p>
+        <ul>
+          <li>It is read and processed locally on your device.</li>
+          <li>It is <strong>never uploaded</strong> to our servers or any third party.</li>
+          <li>We do not store, view, copy or share your files, text or calculation inputs.</li>
+          <li>Closing or refreshing the page removes the data from your browser’s memory.</li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    id: "collect", title: "Information we collect",
+    body: (
+      <>
+        <h3>Information you give us</h3>
+        <p>If you contact us through our <Link href="/contact/">contact form</Link> or by email, we receive the details you choose to share — typically your name, email address, subject and message. We use this only to respond to you.</p>
+        <h3>Information collected automatically</h3>
+        <p>Like most websites, our hosting provider and advertising partners may automatically receive standard technical data such as your IP address, browser type, device type, operating system, referring page, pages visited and the date and time of your visit. This helps keep the Service secure and working properly.</p>
+        <h3>Information stored on your device</h3>
+        <p>We save your light/dark theme preference in your browser’s local storage. It never leaves your device and you can clear it at any time.</p>
+      </>
+    ),
+  },
+  {
+    id: "use", title: "How we use information",
+    body: (
+      <ul>
+        <li>To provide, operate and maintain the Service.</li>
+        <li>To respond to your questions, feedback and support requests.</li>
+        <li>To understand how the Service is used so we can improve it.</li>
+        <li>To display advertising that helps keep our tools free.</li>
+        <li>To detect, prevent and address abuse, fraud or technical issues.</li>
+        <li>To comply with legal obligations.</li>
+      </ul>
+    ),
+  },
+  {
+    id: "cookies", title: "Cookies and web beacons",
+    body: (
+      <>
+        <p>Cookies are small text files stored on your device. {SITE.name} itself does not use cookies to track you. However, third-party services we use — such as Google AdSense — may place and read cookies, web beacons or similar technologies on your browser to serve and measure advertisements.</p>
+        <p>You can choose to disable or delete cookies through your browser settings. Note that some features of third-party services may not work correctly without them.</p>
+      </>
+    ),
+  },
+  {
+    id: "advertising", title: "Advertising and Google AdSense",
+    body: (
+      <>
+        <p>We may use Google AdSense to display advertisements. In connection with this:</p>
+        <ul>
+          <li>Third-party vendors, including Google, use cookies to serve ads based on your prior visits to this website and other websites on the Internet.</li>
+          <li>Google’s use of advertising cookies enables it and its partners to serve ads to you based on your visits to our site and/or other sites on the Internet.</li>
+          <li>You may opt out of personalised advertising by visiting {ext("https://adssettings.google.com", "Google Ads Settings")}. Alternatively, you can opt out of a third-party vendor’s use of cookies for personalised advertising by visiting {ext("https://www.aboutads.info/choices/", "www.aboutads.info")} or {ext("https://www.youronlinechoices.eu/", "www.youronlinechoices.eu")} (EU).</li>
+          <li>To learn more, read {ext("https://policies.google.com/technologies/partner-sites", "How Google uses information from sites or apps that use its services")} and {ext("https://policies.google.com/technologies/ads", "Google’s advertising policies")}.</li>
+        </ul>
+        <p>Where required by law (for example, for visitors in the European Economic Area, the UK and Switzerland), we ask for your consent before personalised ads or advertising cookies are used, through a consent message shown on the site.</p>
+      </>
+    ),
+  },
+  {
+    id: "third-parties", title: "Third-party services",
+    body: (
+      <>
+        <p>We work with a small number of trusted providers. Each has its own privacy policy:</p>
+        <ul>
+          <li><strong>GitHub Pages</strong> — website hosting ({ext("https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement", "privacy statement")}).</li>
+          <li><strong>Google AdSense</strong> — advertising ({ext("https://policies.google.com/privacy", "privacy policy")}).</li>
+          <li><strong>FormSubmit</strong> — delivers contact form messages to our inbox ({ext("https://formsubmit.co/", "formsubmit.co")}).</li>
+          <li><strong>Google Fonts</strong> — web fonts, self-hosted at build time so no request is made to Google when you browse.</li>
+        </ul>
+        <p>Our website may contain links to other sites. We are not responsible for the content or privacy practices of those sites.</p>
+      </>
+    ),
+  },
+  {
+    id: "sharing", title: "Sharing and selling of data",
+    body: <p>We do not sell, rent or trade your personal information. We share information only with the service providers listed above to operate the Service, or when required by law, to protect our rights, or to prevent fraud or abuse.</p>,
+  },
+  {
+    id: "retention", title: "Data retention and security",
+    body: (
+      <>
+        <p>Messages you send us are kept only as long as needed to respond and for reasonable record-keeping, after which they are deleted. Because your files are processed locally, we hold no copies of them.</p>
+        <p>The site is served over HTTPS. While we use reasonable measures to protect information, no method of transmission over the Internet is 100% secure.</p>
+      </>
+    ),
+  },
+  {
+    id: "rights", title: "Your rights (GDPR, CCPA and Indian law)",
+    body: (
+      <>
+        <p>Depending on where you live — including under the EU/UK GDPR, the California Consumer Privacy Act (CCPA) and India’s Digital Personal Data Protection Act, 2023 — you may have the right to:</p>
+        <ul>
+          <li>Access the personal data we hold about you and receive a copy.</li>
+          <li>Correct inaccurate or incomplete data.</li>
+          <li>Request deletion of your personal data.</li>
+          <li>Object to or restrict certain processing, and withdraw consent at any time.</li>
+          <li>Opt out of personalised advertising (see “Advertising” above).</li>
+          <li>Lodge a complaint with your local data protection authority.</li>
+        </ul>
+        <p>To exercise any of these rights, email us at <a href={`mailto:${SITE.email}`}>{SITE.email}</a>. We will respond within 30 days.</p>
+      </>
+    ),
+  },
+  {
+    id: "children", title: "Children’s privacy",
+    body: <p>The Service is not directed at children under 13 (or the minimum age required in your country). We do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us and we will delete it promptly.</p>,
+  },
+  {
+    id: "changes", title: "Changes to this policy",
+    body: <p>We may update this Privacy Policy from time to time. Changes take effect when posted on this page, and the “Last updated” date above will be revised. We encourage you to review this page periodically.</p>,
+  },
+  {
+    id: "contact", title: "Contact us",
+    body: <p>If you have any questions about this Privacy Policy, contact us at <a href={`mailto:${SITE.email}`}>{SITE.email}</a> or through our <Link href="/contact/">contact page</Link>.</p>,
+  },
+];
 
 export default function Privacy() {
   return (
-    <div className="container legal">
-      <h1>Privacy Policy</h1>
-      <p>Toolsivo is built privacy-first. This page explains, in plain language, what happens to your data.</p>
-      <h2>Your files stay on your device</h2>
-      <p>All image, PDF, text and developer tools run entirely in your web browser using JavaScript, HTML Canvas and standard Web APIs. Files you select are read locally and are never uploaded to our servers.</p>
-      <h2>No accounts</h2>
-      <p>You do not need to sign up or log in. We never ask for your name, email or phone number to use a tool.</p>
-      <h2>Local preferences</h2>
-      <p>We store your theme preference (light or dark) in your browser&apos;s local storage. You can clear it at any time from your browser settings.</p>
-      <h2>Calculator results</h2>
-      <p>Financial and tax calculators provide estimates for planning purposes only and are not financial or tax advice.</p>
-      <h2>Contact</h2>
-      <p>Questions? Reach us at hello@toolsivo.com.</p>
-    </div>
+    <LegalPage
+      eyebrow="Legal"
+      title="Privacy Policy"
+      intro="Your privacy matters. Here’s exactly what happens to your data when you use Toolsivo — in plain language."
+      sections={sections}
+    />
   );
 }

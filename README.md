@@ -35,3 +35,16 @@ Tax/GST calculators use FY 2025-26 rules and are estimates only.
 ## Deploy (GitHub Pages)
 
 Pushing to `main` runs `.github/workflows/deploy.yml`. In the repo go to **Settings → Pages → Source** and pick **GitHub Actions**.
+
+## Contact form
+
+Messages are delivered to **toolsivo@gmail.com** through [FormSubmit](https://formsubmit.co) (no server needed).
+The very first submission triggers an activation email to that inbox — click **Activate Form** once, then all messages arrive normally.
+
+## SEO & AdSense
+
+- Every page has its own title, description, keywords, canonical URL, Open Graph/Twitter tags and schema.org data (`lib/site.js`).
+- `sitemap.xml`, `robots.txt` and `manifest.webmanifest` are generated at build time.
+- Optional GitHub repository variables (**Settings → Secrets and variables → Actions → Variables**), no code changes needed:
+  - `GOOGLE_SITE_VERIFICATION` — the content value of Search Console’s HTML-tag verification.
+  - `ADSENSE_CLIENT` — your AdSense publisher ID, e.g. `ca-pub-1234567890123456`. Adds the AdSense script, the `google-adsense-account` meta tag and `ads.txt`.

@@ -1,7 +1,13 @@
 import ToolExplorer from "@/components/ToolExplorer";
 import { tools } from "@/lib/tools";
 
-export const metadata = { title: "All Tools", description: "Browse every free Toolsivo tool — image, PDF, calculators, developer, text and design utilities." };
+import { pageMeta } from "@/lib/site";
+
+export const metadata = pageMeta({
+  title: "All Free Online Tools",
+  description: "Browse every free Toolsivo tool — image, PDF, calculators, developer, text and design utilities. No sign-up, no uploads, 100% in your browser.",
+  path: "/tools/",
+});
 
 export default function AllTools() {
   return (

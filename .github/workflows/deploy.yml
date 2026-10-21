@@ -39,10 +39,23 @@ jobs:
         env:
           # "/toolsivo" on <user>.github.io/toolsivo, "" on a custom domain
           NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+          # Full public URL, used for canonical links, Open Graph and the sitemap
+          NEXT_PUBLIC_SITE_URL: ${{ steps.pages.outputs.base_url }}
+          # Optional: set in Settings → Secrets and variables → Actions → Variables
+          NEXT_PUBLIC_ADSENSE_CLIENT: ${{ vars.ADSENSE_CLIENT }}
+          NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION: ${{ vars.GOOGLE_SITE_VERIFICATION }}
           NEXT_TELEMETRY_DISABLED: 1
 
       - name: Disable Jekyll
         run: touch out/.nojekyll
+
+      - name: Create ads.txt (when AdSense is configured)
+        env:
+          ADSENSE_CLIENT: ${{ vars.ADSENSE_CLIENT }}
+        run: |
+          if [ -n "$ADSENSE_CLIENT" ]; then
+            echo "google.com, ${ADSENSE_CLIENT#ca-}, DIRECT, f08c47fec0942fa0" > out/ads.txt
+          fi
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

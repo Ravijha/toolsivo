@@ -5,6 +5,8 @@ import { tools, getTool, getCategory, toolsIn } from "@/lib/tools";
 import { ToolIcon } from "@/components/ToolIcon";
 import ToolCard from "@/components/ToolCard";
 import ToolRenderer from "@/components/ToolRenderer";
+import JsonLd from "@/components/JsonLd";
+import { abs, pageMeta } from "@/lib/site";
 
 export const dynamicParams = false;
 export function generateStaticParams() {
@@ -15,10 +17,39 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const t = getTool(slug);
   if (!t) return {};
-  return {
+  return pageMeta({
     title: `${t.name} — Free Online Tool`,
     description: `${t.desc} Free, fast and private — runs entirely in your browser on Toolsivo.`,
-    alternates: { canonical: `/tools/${t.slug}` },
+    path: `/tools/${t.slug}/`,
+    keywords: [t.name.toLowerCase(), `${t.name.toLowerCase()} online`, `free ${t.name.toLowerCase()}`, ...t.tags.split(" "), getCategory(t.cat).name.toLowerCase()],
+  });
+}
+
+function toolSchema(t, c) {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        name: t.name,
+        url: abs(`/tools/${t.slug}/`),
+        description: t.desc,
+        applicationCategory: c.id === "developer" ? "DeveloperApplication" : c.id === "calculators" ? "FinanceApplication" : "MultimediaApplication",
+        operatingSystem: "Any (web browser)",
+        browserRequirements: "Requires JavaScript. Works in all modern browsers.",
+        isAccessibleForFree: true,
+        offers: { "@type": "Offer", price: "0", priceCurrency: "INR" },
+        publisher: { "@id": abs("/#organization") },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: abs("/") },
+          { "@type": "ListItem", position: 2, name: c.name, item: abs(`/category/${c.id}/`) },
+          { "@type": "ListItem", position: 3, name: t.name, item: abs(`/tools/${t.slug}/`) },
+        ],
+      },
+    ],
   };
 }
 
@@ -40,6 +71,7 @@ export default async function ToolPage({ params }) {
 
   return (
     <>
+      <JsonLd data={toolSchema(t, c)} />
       <section className="tool-hero">
         <div className="container">
           <nav className="crumbs" aria-label="Breadcrumb">

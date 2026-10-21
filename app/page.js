@@ -6,6 +6,7 @@ import Spotlight from "@/components/Spotlight";
 import ToolExplorer from "@/components/ToolExplorer";
 import { CatIcon, ToolIcon } from "@/components/ToolIcon";
 import { categories, tools, toolsIn } from "@/lib/tools";
+import JsonLd from "@/components/JsonLd";
 
 const floaters = [
   { slug: "image-compressor", label: "-72% size", style: { top: "14%", left: "4%", "--r": "-4deg" } },
@@ -34,6 +35,13 @@ const faqs = [
 export default function Home() {
   return (
     <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+        }}
+      />
       {/* ---------- Hero ---------- */}
       <section className="hero">
         <HeroCanvas />
