@@ -15,5 +15,6 @@ export default function sitemap() {
     page("/contact/", 0.5),
     page("/privacy/", 0.3, "yearly"),
     page("/terms/", 0.3, "yearly"),
+    page("/licenses/", 0.2, "yearly"),
   ];
 }

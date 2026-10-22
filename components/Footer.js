@@ -31,6 +31,7 @@ export default function Footer() {
             <Link href="/contact/">Contact</Link>
             <Link href="/privacy/">Privacy Policy</Link>
             <Link href="/terms/">Terms &amp; Conditions</Link>
+            <Link href="/licenses/">Licenses</Link>
             <span style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>Made with <Heart size={14} fill="#ff4d8d" color="#ff4d8d" /> in India</span>
           </span>
         </div>

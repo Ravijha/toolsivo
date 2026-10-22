@@ -44,7 +44,16 @@ const sections = [
   },
   {
     id: "ip", title: "Intellectual property",
-    body: <p>The Service — including its design, logo, name, text, graphics and source code — is owned by {SITE.name} and protected by copyright, trademark and other laws. You may not copy, reproduce, distribute or create derivative works from any part of the Service without our prior written permission, except as permitted by law. Output files you create with our tools belong to you.</p>,
+    body: (
+      <>
+        <p>The Service — including its design, logo, name, text, graphics and original source code — is owned by {SITE.name} and protected by copyright, trademark and other laws. You may not copy, reproduce, distribute or create derivative works from any part of the Service without our prior written permission, except as permitted by law. Output files you create with our tools belong to you.</p>
+        <p>The Service also includes third-party open-source software, which remains the property of its respective authors and is licensed under its own terms. See our <Link href="/licenses/">Open-Source Licenses</Link> page for details.</p>
+      </>
+    ),
+  },
+  {
+    id: "trademarks", title: "Trademarks",
+    body: <p>“QR Code” is a registered trademark of DENSO WAVE INCORPORATED. Google, YouTube, Facebook, Instagram, WhatsApp, X, LinkedIn, Pinterest and other names mentioned on the Service are trademarks of their respective owners and are used only to describe compatibility. {SITE.name} is not affiliated with, endorsed by or sponsored by any of them. See the <Link href="/licenses/#trademarks">full trademark notices</Link>.</p>,
   },
   {
     id: "accuracy", title: "Calculators and accuracy",

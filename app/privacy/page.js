@@ -81,7 +81,7 @@ const sections = [
           <li>You may opt out of personalised advertising by visiting {ext("https://adssettings.google.com", "Google Ads Settings")}. Alternatively, you can opt out of a third-party vendor’s use of cookies for personalised advertising by visiting {ext("https://www.aboutads.info/choices/", "www.aboutads.info")} or {ext("https://www.youronlinechoices.eu/", "www.youronlinechoices.eu")} (EU).</li>
           <li>To learn more, read {ext("https://policies.google.com/technologies/partner-sites", "How Google uses information from sites or apps that use its services")} and {ext("https://policies.google.com/technologies/ads", "Google’s advertising policies")}.</li>
         </ul>
-        <p>Where required by law (for example, for visitors in the European Economic Area, the UK and Switzerland), we ask for your consent before personalised ads or advertising cookies are used, through a consent message shown on the site.</p>
+        <p>Where required by law (for example, for visitors in the European Economic Area, the UK and Switzerland), personalised ads and advertising cookies are used only with your consent. When advertising is enabled on the site, this consent is requested through a Google-certified consent message.</p>
       </>
     ),
   },

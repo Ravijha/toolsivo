@@ -149,6 +149,7 @@ export default function QrCodeTool() {
           </div>
           <CopyBtn text={data} label="Copy encoded text" className="btn btn-sm" />
         </div>
+        <small className="muted">“QR Code” is a registered trademark of DENSO WAVE INCORPORATED.</small>
       </div>
     </div>
   );
