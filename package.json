@@ -9,12 +9,16 @@
     "start": "npx serve@14.2.4 out"
   },
   "dependencies": {
+    "gifuct-js": "2.1.2",
     "lucide-react": "0.544.0",
+    "music-metadata": "11.16.1",
     "next": "15.5.4",
     "pdf-lib": "1.17.1",
     "pdfjs-dist": "4.10.38",
+    "qrcode": "1.5.4",
     "react": "19.1.1",
     "react-dom": "19.1.1",
-    "terser": "5.44.0"
+    "terser": "5.44.0",
+    "tesseract.js": "6.0.1"
   }
 }

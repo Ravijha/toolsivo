@@ -95,6 +95,7 @@ const sections = [
           <li><strong>Google Analytics</strong> — anonymous usage statistics ({ext("https://policies.google.com/technologies/partner-sites", "how Google uses data")}).</li>
           <li><strong>Google AdSense</strong> — advertising ({ext("https://policies.google.com/privacy", "privacy policy")}).</li>
           <li><strong>FormSubmit</strong> — delivers contact form messages to our inbox ({ext("https://formsubmit.co/", "formsubmit.co")}).</li>
+          <li><strong>jsDelivr CDN</strong> — the Image to Text (OCR) tool downloads its open-source recognition engine and language files from jsDelivr. Your images are not sent; they are processed on your device.</li>
           <li><strong>Google Fonts</strong> — web fonts, self-hosted at build time so no request is made to Google when you browse.</li>
         </ul>
         <p>Our website may contain links to other sites. We are not responsible for the content or privacy practices of those sites.</p>

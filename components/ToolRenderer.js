@@ -45,6 +45,23 @@ const Favicon = dynamic(() => import("@/tools/Favicon"), { ssr: false, loading }
 const Palette = dynamic(() => import("@/tools/Palette"), { ssr: false, loading });
 const Watermark = dynamic(() => import("@/tools/Watermark"), { ssr: false, loading });
 const TransparentPreview = dynamic(() => import("@/tools/TransparentPreview"), { ssr: false, loading });
+const Ocr = dynamic(() => import("@/tools/Ocr"), { ssr: false, loading });
+const QrCode = dynamic(() => import("@/tools/QrCode"), { ssr: false, loading });
+const Password = dynamic(() => import("@/tools/Password"), { ssr: false, loading });
+const ColorGradient = dynamic(() => import("@/tools/ColorGradient"), { ssr: false, loading });
+const MetaPreview = dynamic(() => import("@/tools/MetaPreview"), { ssr: false, loading });
+const OgPreview = dynamic(() => import("@/tools/OgPreview"), { ssr: false, loading });
+const RobotsTxt = dynamic(() => import("@/tools/RobotsTxt"), { ssr: false, loading });
+const SitemapGen = dynamic(() => import("@/tools/SitemapGen"), { ssr: false, loading });
+const HttpStatus = dynamic(() => import("@/tools/HttpStatus"), { ssr: false, loading });
+const AspectRatio = dynamic(() => import("@/tools/AspectRatio"), { ssr: false, loading });
+const AudioMeta = dynamic(() => import("@/tools/AudioMeta"), { ssr: false, loading });
+const GifFrames = dynamic(() => import("@/tools/GifFrames"), { ssr: false, loading });
+const Subtitles = dynamic(() => import("@/tools/Subtitles"), { ssr: false, loading });
+const TimeDuration = dynamic(() => import("@/tools/TimeDuration"), { ssr: false, loading });
+const WorkingDays = dynamic(() => import("@/tools/WorkingDays"), { ssr: false, loading });
+const TimeZone = dynamic(() => import("@/tools/TimeZone"), { ssr: false, loading });
+const LoanPrepay = dynamic(() => import("@/tools/LoanPrepay"), { ssr: false, loading });
 
 const map = {
   "image-cropper-resizer": [CropResize],
@@ -87,6 +104,23 @@ const map = {
   "color-palette-generator": [Palette],
   "image-watermark": [Watermark],
   "transparent-png-previewer": [TransparentPreview],
+  "image-to-text": [Ocr],
+  "qr-code-generator": [QrCode],
+  "password-generator": [Password],
+  "color-picker-gradient": [ColorGradient],
+  "meta-tag-preview": [MetaPreview],
+  "open-graph-preview": [OgPreview],
+  "robots-txt-generator": [RobotsTxt],
+  "xml-sitemap-generator": [SitemapGen],
+  "http-status-checker": [HttpStatus],
+  "video-aspect-ratio-calculator": [AspectRatio],
+  "audio-metadata-viewer": [AudioMeta],
+  "gif-frame-extractor": [GifFrames],
+  "subtitle-converter": [Subtitles],
+  "time-duration-calculator": [TimeDuration],
+  "working-days-calculator": [WorkingDays],
+  "time-zone-converter": [TimeZone],
+  "loan-prepayment-calculator": [LoanPrepay],
 };
 
 export default function ToolRenderer({ slug }) {

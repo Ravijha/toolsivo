@@ -31,11 +31,47 @@ function Compare({ before, after }) {
   );
 }
 
+// Highest-quality encode that fits under `target` bytes: binary-search quality, then downscale if needed.
+async function fitToSize(img, w0, h0, type, target, cancelled) {
+  let w = w0, h = h0, best = null;
+  for (let pass = 0; pass < 8; pass++) {
+    const c = makeCanvas(w, h);
+    const ctx = c.getContext("2d");
+    if (type === "image/jpeg") { ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, w, h); }
+    ctx.imageSmoothingQuality = "high";
+    ctx.drawImage(img, 0, 0, w, h);
+    let lo = 0.05, hi = 0.95, fit = null;
+    for (let i = 0; i < 7; i++) {
+      if (cancelled()) return {};
+      const q = (lo + hi) / 2;
+      const b = await canvasToBlob(c, type, q);
+      if (b.size <= target) { fit = b; lo = q; } else hi = q;
+    }
+    if (!fit) {
+      const b = await canvasToBlob(c, type, 0.05);
+      if (b.size <= target) fit = b;
+      else {
+        if (!best || b.size < best.size) best = b;
+        // shrink dimensions roughly in proportion to the overshoot and try again
+        const k = Math.max(0.5, Math.min(0.9, Math.sqrt(target / b.size) * 0.95));
+        w = Math.max(16, Math.round(w * k));
+        h = Math.max(16, Math.round(h * k));
+        if (w === 16 && h === 16) break;
+        continue;
+      }
+    }
+    return { blob: fit, hit: true };
+  }
+  return { blob: best, hit: false };
+}
+
 export default function Compressor() {
   const [items, setItems] = useState([]);
   const [quality, setQuality] = useState(72);
   const [format, setFormat] = useState("same");
   const [maxW, setMaxW] = useState("");
+  const [mode, setMode] = useState("quality");
+  const [targetKB, setTargetKB] = useState("100");
   const [sel, setSel] = useState(null);
   const run = useRef(0);
 
@@ -49,7 +85,8 @@ export default function Compressor() {
 
   const outType = (f) => (format === "same" ? (["image/jpeg", "image/webp", "image/png"].includes(f.type) ? f.type : "image/jpeg") : format);
 
-  const key = items.map((i) => i.id).join() + quality + format + maxW;
+  const target = Math.max(1, +targetKB || 0) * 1024;
+  const key = items.map((i) => i.id).join() + quality + format + maxW + mode + (mode === "size" ? targetKB : "");
   useEffect(() => {
     if (!items.length) return;
     const id = ++run.current;
@@ -62,16 +99,24 @@ export default function Compressor() {
         if (mw && w > mw) { h = Math.round((h * mw) / w); w = mw; }
         const c = makeCanvas(w, h);
         const ctx = c.getContext("2d");
-        const type = outType(it.file);
+        let type = outType(it.file);
         if (type === "image/jpeg") { ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, w, h); }
         ctx.imageSmoothingQuality = "high";
         ctx.drawImage(img, 0, 0, w, h);
-        let blob = await canvasToBlob(c, type, quality / 100);
-        // never hand back a bigger file than the original in the same format
-        const kept = blob.size >= it.file.size && type === it.file.type && !mw;
-        if (kept) blob = it.file;
+        let blob, kept = false, hit = null;
+        if (mode === "size") {
+          // PNG has no quality setting, so target-size mode always uses a lossy format
+          if (type === "image/png") type = "image/jpeg";
+          ({ blob, hit } = await fitToSize(img, w, h, type, target, () => id !== run.current));
+          if (!blob) return;
+        } else {
+          blob = await canvasToBlob(c, type, quality / 100);
+          // never hand back a bigger file than the original in the same format
+          kept = blob.size >= it.file.size && type === it.file.type && !mw;
+          if (kept) blob = it.file;
+        }
         if (id !== run.current) return;
-        setItems((p) => p.map((x) => (x.id === it.id ? { ...x, out: blob, outUrl: URL.createObjectURL(blob), kept, type } : x)));
+        setItems((p) => p.map((x) => (x.id === it.id ? { ...x, out: blob, outUrl: URL.createObjectURL(blob), kept, hit, type } : x)));
       }
     }, 300);
     return () => clearTimeout(t);
@@ -108,7 +153,7 @@ export default function Compressor() {
               size={it.file.size}
               outSize={it.out?.size}
               busy={!it.out}
-              extra={it.kept ? " · already optimal" : null}
+              extra={it.kept ? " · already optimal" : it.hit === false ? " · smallest possible" : it.hit ? ` · under ${targetKB} KB ✓` : null}
               onDownload={it.out ? () => downloadBlob(it.out, nameFor(it)) : null}
               onRemove={() => setItems((p) => p.filter((x) => x.id !== it.id))}
             />
@@ -118,14 +163,31 @@ export default function Compressor() {
       <div className="side">
         <div className="panel stack">
           <div className="panel-title">Compression</div>
-          <Range label="Quality" value={quality} min={10} max={100} onChange={setQuality} format={(v) => `${v}%`} />
-          <div className="row" style={{ justifyContent: "space-between", fontSize: ".78rem" }} >
-            <span className="muted">Smaller file</span><span className="muted">Better quality</span>
-          </div>
+          <Seg options={[{ label: "By quality", value: "quality" }, { label: "Target size (KB)", value: "size" }]} value={mode} onChange={setMode} />
+          {mode === "quality" ? (
+            <>
+              <Range label="Quality" value={quality} min={10} max={100} onChange={setQuality} format={(v) => `${v}%`} />
+              <div className="row" style={{ justifyContent: "space-between", fontSize: ".78rem" }} >
+                <span className="muted">Smaller file</span><span className="muted">Better quality</span>
+              </div>
+            </>
+          ) : (
+            <>
+              <Field label="Maximum file size" hint="We find the best quality that fits under this size">
+                <NumInput value={targetKB} onChange={setTargetKB} suffix="KB" min={1} placeholder="e.g. 100" />
+              </Field>
+              <div className="seg">
+                {[20, 50, 100, 200, 500].map((k) => (
+                  <button key={k} className={+targetKB === k ? "on" : ""} onClick={() => setTargetKB(String(k))}>{k} KB</button>
+                ))}
+              </div>
+            </>
+          )}
           <Field label="Output format">
             <Seg options={[{ label: "Same", value: "same" }, { label: "JPG", value: "image/jpeg" }, { label: "WebP", value: "image/webp" }]} value={format} onChange={setFormat} />
           </Field>
-          {hasPng && <Msg>PNG output is lossless, so quality has no effect. Choose WebP or JPG for big savings.</Msg>}
+          {mode === "size" && items.some((i) => i.hit === false) && <Msg type="bad">Some images can’t reach {targetKB} KB without becoming unrecognisable — we saved the smallest usable version. Try a larger size.</Msg>}
+          {mode === "quality" && hasPng && <Msg>PNG output is lossless, so quality has no effect. Choose WebP or JPG for big savings.</Msg>}
           <Field label="Max width (optional)" hint="Downscale large photos for much smaller files">
             <NumInput value={maxW} onChange={setMaxW} suffix="px" placeholder="e.g. 1920" />
           </Field>

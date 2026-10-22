@@ -59,6 +59,8 @@ const howTo = {
   pdf: ["Add your PDF file(s) — they stay on your device.", "Choose pages, order or options using the visual page grid.", "Click the action button and download your new PDF."],
   calculators: ["Enter your values in the form.", "Results and charts update instantly as you type.", "Tweak inputs to compare scenarios side by side."],
   developer: ["Paste your input or type directly in the editor.", "Pick the operation — results appear in real time.", "Copy the output to your clipboard or download it."],
+  seo: ["Enter your page details, URLs or rules.", "Previews and generated code update live as you type.", "Copy the code or download the file for your website."],
+  media: ["Add your media file or enter the values.", "Inspect the details and adjust options instantly.", "Copy the result or download the converted files."],
   text: ["Paste or type your text into the editor.", "Choose the options you need — output updates live.", "Copy the result with one click or download as .txt."],
 };
 

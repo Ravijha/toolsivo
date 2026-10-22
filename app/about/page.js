@@ -41,7 +41,7 @@ const sections = [
     id: "offer", title: "What we offer",
     body: (
       <>
-        <p>Toolsivo offers {tools.length} free tools across six collections:</p>
+        <p>Toolsivo offers {tools.length} free tools across {categories.length} collections:</p>
         <div className="doc-cards">
           {categories.map((c) => (
             <Link key={c.id} href={`/category/${c.id}/`} className="panel" style={{ display: "flex", gap: 12, alignItems: "center", fontWeight: 400 }}>

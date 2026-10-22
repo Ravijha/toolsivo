@@ -79,7 +79,7 @@ export default function Home() {
       <section className="section" id="categories">
         <div className="container">
           <div className="section-head">
-            <span className="eyebrow">Six toolkits, one place</span>
+            <span className="eyebrow">{categories.length} toolkits, one place</span>
             <h2>Everything organised, beautifully</h2>
             <p>From quick image fixes to Indian salary maths, every toolkit is purpose-built for one job and does it well.</p>
           </div>

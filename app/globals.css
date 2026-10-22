@@ -365,7 +365,8 @@ code, kbd, pre { font-family: var(--mono); }
 
 /* ================= Footer ================= */
 .footer { margin-top: 60px; border-top: 1px solid var(--border); padding: 60px 0 30px; background: var(--bg-2); }
-.footer-grid { display: grid; grid-template-columns: 1.6fr repeat(6, 1fr); gap: 28px; }
+.footer-grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 28px 22px; }
+.footer-grid .footer-about { grid-column: 1 / -1; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
 .footer h4 { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 14px; }
 .footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
 .footer li a { font-size: 0.86rem; color: var(--text-2); transition: color .2s; }
