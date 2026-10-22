@@ -15,17 +15,18 @@ const SHEETS = {
   custom: { name: "Custom size" },
 };
 
+// Fictional sample addresses (placeholder building and street names)
 const SAMPLE = `Ms. Ananya Iyer
-14, Lake View Apartments
-Indiranagar, Bengaluru 560038
+Flat 101, Sample Residency
+Example Road, Bengaluru 560001
 
 Mr. Rahul Mehta
-7B, Sea Breeze Towers
-Bandra West, Mumbai 400050
+Flat 202, Demo Heights
+Sample Street, Mumbai 400001
 
 Dr. Kavita Rao
-22, Green Park Extension
-New Delhi 110016`;
+House 3, Placeholder Lane
+Test Nagar, New Delhi 110001`;
 
 export default function Labels() {
   const [sheetId, setSheetId] = useState("a4-21");
@@ -94,7 +95,7 @@ export default function Labels() {
         </div>
         <div className="panel stack">
           <Seg options={[{ label: "List (one per block)", value: "list" }, { label: "Same on every label", value: "same" }]} value={mode} onChange={setMode} />
-          <Field label={mode === "list" ? "Labels — separate each one with a blank line" : "Label text"}>
+          <Field label={mode === "list" ? "Labels — separate each one with a blank line" : "Label text"} hint={text === SAMPLE ? "These are fictional sample addresses — replace them with your own." : undefined}>
             <textarea className="textarea prose" style={{ minHeight: 180 }} value={text} onChange={(e) => setText(e.target.value)} />
           </Field>
           <div className="grid-2">

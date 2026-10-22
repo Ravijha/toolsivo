@@ -6,16 +6,16 @@ import PrintDoc, { esc, usePersist } from "@/components/PrintDoc";
 let uid = 1000;
 const nid = () => ++uid;
 const EXAMPLE = {
-  name: "Aarav Sharma", title: "Senior Frontend Developer", email: "aarav.sharma@email.com", phone: "+91 98765 43210", location: "Pune, India",
-  links: "linkedin.com/in/aaravsharma\ngithub.com/aaravsharma",
+  name: "Aarav Sharma", title: "Senior Frontend Developer", email: "aarav.sharma@example.com", phone: "+91 00000 00000", location: "Pune, India",
+  links: "linkedin.com/in/your-profile\ngithub.com/your-username",
   summary: "Frontend developer with 6+ years of experience building fast, accessible web applications with React and TypeScript. Led a team of 4 to rebuild a checkout flow that lifted conversion by 18%.",
   experience: [
-    { id: 1, role: "Senior Frontend Developer", company: "Brightcart Technologies", place: "Pune", start: "Jan 2022", end: "Present", bullets: "Led the redesign of the checkout flow, increasing conversion by 18%\nCut page load time by 45% through code-splitting and image optimisation\nMentored 4 developers and introduced code-review guidelines" },
-    { id: 2, role: "Frontend Developer", company: "Nimbus Software", place: "Bengaluru", start: "Jul 2019", end: "Dec 2021", bullets: "Built a reusable component library used across 6 products\nImplemented WCAG 2.1 AA accessibility fixes across the main dashboard" },
+    { id: 1, role: "Senior Frontend Developer", company: "Example Tech Pvt. Ltd.", place: "Pune", start: "Jan 2022", end: "Present", bullets: "Led the redesign of the checkout flow, increasing conversion by 18%\nCut page load time by 45% through code-splitting and image optimisation\nMentored 4 developers and introduced code-review guidelines" },
+    { id: 2, role: "Frontend Developer", company: "Sample Software Co.", place: "Bengaluru", start: "Jul 2019", end: "Dec 2021", bullets: "Built a reusable component library used across 6 products\nImplemented WCAG 2.1 AA accessibility fixes across the main dashboard" },
   ],
-  education: [{ id: 3, degree: "B.Tech, Computer Science", school: "College of Engineering, Pune", year: "2019", score: "CGPA 8.6" }],
+  education: [{ id: 3, degree: "B.Tech, Computer Science", school: "Sample Institute of Technology", year: "2019", score: "CGPA 8.6" }],
   skills: "React, TypeScript, JavaScript, Next.js, HTML, CSS, Tailwind, Redux, Jest, Git, Accessibility, Performance optimisation",
-  projects: [{ id: 4, name: "Open-source date picker", link: "github.com/aaravsharma/datepick", desc: "Lightweight accessible date picker with 1,200+ GitHub stars." }],
+  projects: [{ id: 4, name: "Open-source date picker", link: "github.com/your-username/date-picker", desc: "Lightweight accessible date picker with 1,200+ GitHub stars." }],
   certs: "AWS Certified Cloud Practitioner (2023)",
   languages: "English, Hindi, Marathi",
   template: "modern", color: "#2563eb",
@@ -95,6 +95,7 @@ p{margin:0}
         <div className="panel stack">
           <Field label="Layout"><Seg options={[{ label: "Modern", value: "modern" }, { label: "Classic", value: "classic" }, { label: "Minimal", value: "minimal" }]} value={tpl} onChange={(v) => setR((s) => ({ ...s, template: v }))} /></Field>
           {tpl === "modern" && <div className="row"><input type="color" value={c} onChange={set("color")} /><small className="muted">Accent colour</small></div>}
+          {r.email === EXAMPLE.email && <Msg type="bad">This is a <b>sample résumé</b> — the person, companies, college and links are fictional placeholders. Replace them with your own details or click “Clear all”.</Msg>}
           <Msg>Your résumé is saved automatically in this browser only — nothing is uploaded.</Msg>
         </div>
         <div className="panel stack">
