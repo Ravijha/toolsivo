@@ -74,6 +74,9 @@ export default function InvoiceQuote({ kind = "invoice" }) {
     r.readAsDataURL(f);
   };
 
+  // GSTIN: 2-digit state code + PAN + entity number + Z + checksum character
+  const gstin = seller.gstin.trim().toUpperCase();
+  const gstOk = /^\d{2}[A-Z]{5}\d{4}[A-Z][1-9A-Z]Z[0-9A-Z]$/.test(gstin);
   const c = seller.color;
   const modern = seller.layout === "modern";
   const showTaxCol = meta.taxMode !== "none";
@@ -88,7 +91,7 @@ export default function InvoiceQuote({ kind = "invoice" }) {
       <p class="muted">${[seller.email, seller.phone].filter(Boolean).map(esc).join(" · ")}</p>
     </div>
     <div class="right">
-      <h1 class="title">${isInv ? (meta.taxMode === "none" ? "INVOICE" : "TAX INVOICE") : "QUOTATION"}</h1>
+      <h1 class="title">${isInv ? (meta.taxMode !== "none" && gstOk ? "TAX INVOICE" : "INVOICE") : "QUOTATION"}</h1>
       <table class="meta">
         <tr><td>${isInv ? "Invoice" : "Quote"} no.</td><td><b>${esc(meta.no)}</b></td></tr>
         <tr><td>Date</td><td>${fmtDate(meta.date)}</td></tr>
@@ -253,6 +256,11 @@ export default function InvoiceQuote({ kind = "invoice" }) {
           <button className="btn btn-sm" onClick={() => setCounter((n) => n + 1)}><Plus size={15} /> Next number</button>
           <button className="btn btn-sm btn-ghost" onClick={() => setCounter(1)}><RotateCcw size={15} /> Reset numbering</button>
         </div>
+        {meta.taxMode !== "none" && !gstOk && (
+          <Msg type="bad">{gstin
+            ? "This GSTIN doesn’t look valid (15 characters, e.g. 27ABCDE1234F1Z5). Please check it."
+            : `Only GST-registered businesses may charge GST. Add your GSTIN above, or choose “No tax” if you are not registered. Until then the document is titled “${isInv ? "Invoice" : "Quotation"}”, not “Tax Invoice”.`}</Msg>
+        )}
         <Msg>{isInv
           ? "You are responsible for the accuracy of your invoices and for meeting GST rules (e.g. GSTIN, HSN/SAC and place of supply when required). This tool does not file anything with the GST portal."
           : "Quotations are estimates for your client. Check prices, taxes and validity before sending."}</Msg>

@@ -57,7 +57,7 @@ const sections = [
     body: (
       <>
         <p>“QR Code” is a registered trademark of DENSO WAVE INCORPORATED.</p>
-        <p>Google, YouTube, Google AdSense and Google Analytics are trademarks of Google LLC. Facebook, Instagram and WhatsApp are trademarks of Meta Platforms, Inc. X is a trademark of X Corp. LinkedIn is a trademark of LinkedIn Corporation. Pinterest is a trademark of Pinterest, Inc. PDF is a trademark of Adobe. All other product names, logos and brands are the property of their respective owners.</p>
+        <p>Google, YouTube, Google AdSense and Google Analytics are trademarks of Google LLC. Facebook, Instagram and WhatsApp are trademarks of Meta Platforms, Inc. X is a trademark of X Corp. LinkedIn, Microsoft, Outlook, Excel, SQL Server and GitHub are trademarks of the Microsoft group of companies. Apple and Apple Mail are trademarks of Apple Inc. Pinterest is a trademark of Pinterest, Inc. PDF is a trademark of Adobe. UPI is a trademark of the National Payments Corporation of India. Oracle and MySQL are trademarks of Oracle Corporation. Amazon Web Services, AWS and Redshift are trademarks of Amazon.com, Inc. PostgreSQL, MariaDB, Snowflake, BigQuery, Apache Spark, IBM Db2, GitLab and Notion are trademarks of their respective owners. All other product names, logos and brands are the property of their respective owners.</p>
         <p>These names are used only to describe which formats, sizes or platforms our tools work with. {SITE.name} is an independent service and is not affiliated with, endorsed by or sponsored by any of these companies.</p>
       </>
     ),

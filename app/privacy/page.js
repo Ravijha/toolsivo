@@ -44,7 +44,11 @@ const sections = [
         <h3>Information collected automatically</h3>
         <p>Like most websites, our hosting provider and advertising partners may automatically receive standard technical data such as your IP address, browser type, device type, operating system, referring page, pages visited and the date and time of your visit. This helps keep the Service secure and working properly.</p>
         <h3>Information stored on your device</h3>
-        <p>We save your light/dark theme preference in your browser’s local storage. It never leaves your device and you can clear it at any time.</p>
+        <p>Some tools save information in your browser’s local storage so you don’t have to retype it: your light/dark theme, the business details and numbering in the Invoice and Quotation generators, your Résumé Builder content, and your Email Signature details. This data stays on your device — it is never sent to us — and you can delete it at any time by clearing your browser’s site data.</p>
+        <h3>Camera and microphone</h3>
+        <p>The QR Code Reader can use your camera, but only after you press “Start camera” and grant permission. The video is analysed on your device to find a QR code; it is never recorded, stored or uploaded. No tool uses your microphone.</p>
+        <h3>Text to speech</h3>
+        <p>The Text to Speech tool uses the voices provided by your device and browser. On-device voices process your text locally. Some browsers also offer “online” voices (clearly labelled in the tool); if you choose one, your text is sent to that browser maker’s speech service (for example Google or Microsoft) under their privacy policy.</p>
       </>
     ),
   },

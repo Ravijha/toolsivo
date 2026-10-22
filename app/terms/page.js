@@ -31,6 +31,7 @@ const sections = [
         <ul>
           <li>Use the Service to process content that is illegal, infringing, defamatory, obscene or that you do not have the right to use.</li>
           <li>Create forged, counterfeit or fraudulent documents — for example, misuse the passport photo, PDF or watermark tools to deceive any person or authority.</li>
+          <li>Create fake or misleading invoices, quotations, résumés or other documents, or charge GST without being registered for it. You are solely responsible for the accuracy and legality of every document you create with our tools.</li>
           <li>Attempt to disrupt, overload, reverse engineer, scrape or gain unauthorised access to the Service or its infrastructure.</li>
           <li>Use automated systems to access the Service in a way that sends more requests than a human could reasonably produce.</li>
           <li>Interfere with advertisements shown on the Service, including generating invalid clicks or impressions.</li>
