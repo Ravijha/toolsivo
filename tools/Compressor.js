@@ -6,27 +6,46 @@ import FileRow from "@/components/FileRow";
 import { loadImage, makeCanvas, canvasToBlob, downloadBlob, baseName, extFor, isImage, formatBytes } from "@/lib/file";
 import { makeZip } from "@/lib/zip";
 
-function Compare({ before, after }) {
+function Compare({ before, after, beforeSize, afterSize }) {
   const [pos, setPos] = useState(50);
+  const [zoom, setZoom] = useState(1);
+  const [focus, setFocus] = useState({ x: 50, y: 50 });
   const ref = useRef(null);
   const drag = (e) => {
     const r = ref.current.getBoundingClientRect();
     setPos(Math.min(100, Math.max(0, ((e.clientX - r.left) / r.width) * 100)));
   };
+  // when zoomed, hovering moves the magnified area (both sides stay aligned)
+  const look = (e) => {
+    const r = ref.current.getBoundingClientRect();
+    setFocus({ x: Math.min(100, Math.max(0, ((e.clientX - r.left) / r.width) * 100)), y: Math.min(100, Math.max(0, ((e.clientY - r.top) / r.height) * 100)) });
+  };
+  const zoomStyle = { transform: `scale(${zoom})`, transformOrigin: `${focus.x}% ${focus.y}%`, transition: "transform .2s ease", imageRendering: zoom >= 4 ? "pixelated" : "auto" };
+  const pct = beforeSize && afterSize ? Math.round((1 - afterSize / beforeSize) * 100) : null;
   return (
-    <div
-      ref={ref}
-      className="compare"
-      onPointerDown={(e) => { e.currentTarget.setPointerCapture(e.pointerId); drag(e); }}
-      onPointerMove={(e) => e.buttons && drag(e)}
-    >
-      <img src={before} alt="Original" />
-      <div className="after" style={{ clipPath: `inset(0 0 0 ${pos}%)` }}>
-        <img src={after} alt="Compressed" style={{ width: "100%" }} />
+    <div className="stack" style={{ gap: 10 }}>
+      <div
+        ref={ref}
+        className="compare"
+        onPointerDown={(e) => { e.currentTarget.setPointerCapture(e.pointerId); drag(e); }}
+        onPointerMove={(e) => (e.buttons ? drag(e) : zoom > 1 && look(e))}
+      >
+        <img src={before} alt="Original" style={zoomStyle} />
+        <div className="after" style={{ clipPath: `inset(0 0 0 ${pos}%)` }}>
+          <img src={after} alt="Compressed" style={{ width: "100%", ...zoomStyle }} />
+        </div>
+        <span className="tag" style={{ left: 12 }}>Original{beforeSize ? ` · ${formatBytes(beforeSize)}` : ""}</span>
+        <span className="tag" style={{ right: 12 }}>Compressed{afterSize ? ` · ${formatBytes(afterSize)}` : ""}{pct != null ? ` (${pct >= 0 ? "−" : "+"}${Math.abs(pct)}%)` : ""}</span>
+        <div className="bar" style={{ left: `${pos}%` }}><span className="knob"><MoveHorizontal size={18} /></span></div>
       </div>
-      <span className="tag" style={{ left: 12 }}>Original</span>
-      <span className="tag" style={{ right: 12 }}>Compressed</span>
-      <div className="bar" style={{ left: `${pos}%` }}><span className="knob"><MoveHorizontal size={18} /></span></div>
+      <div className="row" style={{ justifyContent: "space-between" }}>
+        <small className="muted">{zoom > 1 ? "Move your mouse over the image to inspect details · drag to compare" : "Drag the slider to compare · zoom in to see compression detail"}</small>
+        <div className="seg" style={{ flex: "none" }}>
+          {[1, 2, 4, 8].map((z) => (
+            <button key={z} className={zoom === z ? "on" : ""} onClick={() => setZoom(z)}>{z === 1 ? "Fit" : `${z}×`}</button>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
@@ -135,7 +154,7 @@ export default function Compressor() {
   return (
     <div className="tool-cols wide-side">
       <div className="stack">
-        {current?.outUrl ? <Compare before={current.thumb} after={current.outUrl} /> : <div className="preview-box"><img src={current?.thumb} alt="" /></div>}
+        {current?.outUrl ? <Compare before={current.thumb} after={current.outUrl} beforeSize={current.file.size} afterSize={current.out?.size} /> : <div className="preview-box"><img src={current?.thumb} alt="" /></div>}
         <div className="stats">
           <Stat label="Original" value={formatBytes(tin)} />
           <Stat label="Compressed" value={formatBytes(tout)} />

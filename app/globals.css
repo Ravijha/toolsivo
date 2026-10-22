@@ -164,6 +164,7 @@ code, kbd, pre { font-family: var(--mono); }
 .mega a:hover { background: var(--surface-2); }
 .mega strong { display: block; font-size: 0.93rem; }
 .mega span { font-size: 0.8rem; color: var(--muted); line-height: 1.4; }
+.mega .icon-tile { color: #fff; }
 .header-actions { margin-left: auto; display: flex; align-items: center; gap: 8px; }
 .search-trigger {
   display: inline-flex; align-items: center; gap: 10px; height: 40px; padding: 0 10px 0 14px; min-width: 220px;
