@@ -2,6 +2,7 @@
 import { useMemo, useState } from "react";
 import { ArrowLeftRight } from "lucide-react";
 import { Seg, Toggle, Stat, Msg } from "@/components/ui";
+import { tools } from "@/lib/tools";
 
 // Line-level LCS diff → [{ type: 'eq'|'add'|'del', a?, b?, text }]
 function diff(A, B) {
@@ -27,7 +28,7 @@ It works in your browser.
 Files are processed locally.
 Pricing: free for everyone.
 Contact: hello@toolsivo.com`;
-const right = `Toolsivo is a collection of 40+ online tools.
+const right = `Toolsivo is a collection of ${tools.length} online tools.
 It works in your browser.
 Files are processed locally and never uploaded.
 Pricing: free for everyone.

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { ChevronDown, Menu, Moon, Search, Sun, X } from "lucide-react";
 import Logo from "./Logo";
 import { CatIcon } from "./ToolIcon";
-import { categories, toolsIn } from "@/lib/tools";
+import { categories, tools, toolsIn } from "@/lib/tools";
 
 export function openPalette() {
   window.dispatchEvent(new Event("toolsivo:palette"));
@@ -69,7 +69,7 @@ export default function Header() {
           </nav>
           <div className="header-actions">
             <button className="search-trigger" onClick={openPalette} aria-label="Search tools">
-              <Search size={17} /> <span>Search 40+ tools…</span> <kbd>Ctrl K</kbd>
+              <Search size={17} /> <span>Search {tools.length} tools…</span> <kbd>Ctrl K</kbd>
             </button>
             <ThemeToggle />
             <Link href="/tools" className="btn btn-primary btn-sm" style={{ height: 40 }}>All tools</Link>

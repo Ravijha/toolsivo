@@ -26,7 +26,7 @@ const features = [
 
 const faqs = [
   { q: "Are my files uploaded anywhere?", a: "No. Every Toolsivo tool runs entirely in your browser using JavaScript, HTML Canvas and Web APIs. Your images, PDFs and text never leave your device." },
-  { q: "Is Toolsivo really free?", a: "Yes. All 40+ tools are completely free to use with no sign-up, no hidden limits and no watermarks added to your files." },
+  { q: "Is Toolsivo really free?", a: `Yes. All ${tools.length} tools are completely free to use with no sign-up, no hidden limits and no watermarks added to your files.` },
   { q: "Which browsers are supported?", a: "Any modern browser — Chrome, Edge, Firefox, Safari and their mobile versions. For the best experience keep your browser up to date." },
   { q: "How accurate are the Indian tax and GST calculators?", a: "They follow the current published slabs and rates (FY 2025-26 for income tax). They’re great for planning, but always confirm final figures with a tax professional." },
   { q: "Can I use Toolsivo offline?", a: "Once a tool page has loaded, most tools keep working without a connection because all the processing happens on your device." },
@@ -123,7 +123,7 @@ export default function Home() {
           </div>
           <div className="steps">
             {[
-              { i: MousePointerClick, t: "Pick a tool", d: "Search or browse 40+ focused tools across images, PDFs, calculators, code and text." },
+              { i: MousePointerClick, t: "Pick a tool", d: `Search or browse ${tools.length} focused tools across images, PDFs, documents, calculators, code and more.` },
               { i: Wand2, t: "Do the task", d: "Drop your file or type your input. Tweak settings with live, instant previews." },
               { i: Download, t: "Download", d: "Grab your result in one click — single files, or everything bundled as a ZIP." },
             ].map((s, n) => (

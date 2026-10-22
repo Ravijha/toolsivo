@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { ImageIcon } from "lucide-react";
 import { Field, Seg, CopyBtn, Msg, Dropzone } from "@/components/ui";
+import { tools } from "@/lib/tools";
 
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
 const host = (u) => { try { return new URL(u).host.replace(/^www\./, ""); } catch { return "example.com"; } };
@@ -16,10 +17,10 @@ function Img({ src, ratio = "1.91 / 1", radius = 0 }) {
 
 export default function OgPreview() {
   const [d, setD] = useState({
-    title: "Toolsivo — 50+ Free Online Tools",
+    title: `Toolsivo — ${tools.length} Free Online Tools`,
     desc: "Compress images, merge PDFs, calculate GST and EMI, format JSON and more. Fast, free and private — everything runs in your browser.",
     url: "https://toolsivo.com/",
-    image: "https://toolsivo.com/og-image.png",
+    image: `https://toolsivo.com/og-image.png?v=${tools.length}`,
     site: "Toolsivo",
     type: "website",
     twitter: "",

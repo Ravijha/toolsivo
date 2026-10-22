@@ -11,7 +11,7 @@ const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakart
 const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono", display: "swap" });
 
 const home = pageMeta({
-  title: "Toolsivo — Free Online Image, PDF, Calculator & Developer Tools",
+  title: `Toolsivo — ${SITE.toolCount} Free Online Tools for Images, PDFs, Documents & More`,
   description: SITE.description,
   path: "/",
   absoluteTitle: true,
@@ -20,7 +20,7 @@ const home = pageMeta({
 export const metadata = {
   ...home,
   metadataBase: new URL(SITE.url + "/"),
-  title: { default: "Toolsivo — Free Online Image, PDF, Calculator & Developer Tools", template: "%s · Toolsivo" },
+  title: { default: `Toolsivo — ${SITE.toolCount} Free Online Tools for Images, PDFs, Documents & More`, template: "%s · Toolsivo" },
   applicationName: SITE.name,
   authors: [{ name: SITE.name, url: abs("/") }],
   creator: SITE.name,

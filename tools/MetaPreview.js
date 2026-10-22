@@ -2,6 +2,7 @@
 import { useMemo, useState } from "react";
 import { Monitor, Smartphone, CheckCircle2, AlertTriangle } from "lucide-react";
 import { Field, Seg, CopyBtn } from "@/components/ui";
+import { tools } from "@/lib/tools";
 
 // Google truncates by pixel width (≈600px titles, ≈920px descriptions on desktop), not characters.
 let ctx;
@@ -23,7 +24,7 @@ const esc = (s) => s.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g
 
 export default function MetaPreview() {
   const [title, setTitle] = useState("Free Online Tools — Compress, Convert & Calculate | Toolsivo");
-  const [desc, setDesc] = useState("Toolsivo offers 50+ free online tools: image compressor, PDF merge, GST and EMI calculators, JSON formatter and more. Fast, private and 100% in your browser — no sign-up.");
+  const [desc, setDesc] = useState(`Toolsivo offers ${tools.length} free online tools: image compressor, PDF merge, GST and EMI calculators, JSON formatter and more. Fast, private and 100% in your browser — no sign-up.`);
   const [url, setUrl] = useState("https://toolsivo.com/tools/image-compressor/");
   const [site, setSite] = useState("Toolsivo");
   const [view, setView] = useState("desktop");

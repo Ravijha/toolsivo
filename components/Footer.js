@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Heart } from "lucide-react";
 import Logo from "./Logo";
-import { categories, toolsIn } from "@/lib/tools";
+import { categories, tools, toolsIn } from "@/lib/tools";
 
 export default function Footer() {
   return (
@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="footer-grid">
           <div className="footer-about">
             <Logo size={34} showDomain />
-            <p>40+ free, fast and private online tools. Everything runs in your browser — your files never leave your device.</p>
+            <p>{tools.length} free, fast and private online tools. Everything runs in your browser — your files never leave your device.</p>
           </div>
           {categories.map((c) => (
             <div key={c.id}>
