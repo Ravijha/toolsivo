@@ -21,6 +21,8 @@ const MAIN = [
   ["music-metadata", "Audio metadata reading", "MIT", "https://github.com/Borewit/music-metadata"],
   ["gifuct-js", "GIF decoding", "MIT", "https://github.com/matt-way/gifuct-js"],
   ["Terser", "JavaScript minifier", "BSD-2-Clause", "https://github.com/terser/terser"],
+  ["sql-formatter", "SQL formatting", "MIT", "https://github.com/sql-formatter-org/sql-formatter"],
+  ["jsQR", "QR code reading", "Apache-2.0", "https://github.com/cozmo/jsQR"],
   ["Lucide", "Interface icons", "ISC", "https://github.com/lucide-icons/lucide"],
   ["Plus Jakarta Sans", "Interface font", "SIL Open Font License 1.1", "https://github.com/tokotype/PlusJakartaSans"],
   ["JetBrains Mono", "Code font", "SIL Open Font License 1.1", "https://github.com/JetBrains/JetBrainsMono"],

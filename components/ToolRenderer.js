@@ -62,6 +62,26 @@ const TimeDuration = dynamic(() => import("@/tools/TimeDuration"), { ssr: false,
 const WorkingDays = dynamic(() => import("@/tools/WorkingDays"), { ssr: false, loading });
 const TimeZone = dynamic(() => import("@/tools/TimeZone"), { ssr: false, loading });
 const LoanPrepay = dynamic(() => import("@/tools/LoanPrepay"), { ssr: false, loading });
+const Recipe = dynamic(() => import("@/tools/Recipe"), { ssr: false, loading });
+const FuelCost = dynamic(() => import("@/tools/FuelCost"), { ssr: false, loading });
+const SplitBill = dynamic(() => import("@/tools/SplitBill"), { ssr: false, loading });
+const JsonToTs = dynamic(() => import("@/tools/JsonToTs"), { ssr: false, loading });
+const SqlFormat = dynamic(() => import("@/tools/SqlFormat"), { ssr: false, loading });
+const Cron = dynamic(() => import("@/tools/Cron"), { ssr: false, loading });
+const HtmlEntity = dynamic(() => import("@/tools/HtmlEntity"), { ssr: false, loading });
+const MarkdownTable = dynamic(() => import("@/tools/MarkdownTable"), { ssr: false, loading });
+const EmailSignature = dynamic(() => import("@/tools/EmailSignature"), { ssr: false, loading });
+const ContrastChecker = dynamic(() => import("@/tools/ContrastChecker"), { ssr: false, loading });
+const Poster = dynamic(() => import("@/tools/Poster"), { ssr: false, loading });
+const Agenda = dynamic(() => import("@/tools/Agenda"), { ssr: false, loading });
+const Labels = dynamic(() => import("@/tools/Labels"), { ssr: false, loading });
+const Resume = dynamic(() => import("@/tools/Resume"), { ssr: false, loading });
+const Checksum = dynamic(() => import("@/tools/Checksum"), { ssr: false, loading });
+const FileMeta = dynamic(() => import("@/tools/FileMeta"), { ssr: false, loading });
+const QrReader = dynamic(() => import("@/tools/QrReader"), { ssr: false, loading });
+const Tts = dynamic(() => import("@/tools/Tts"), { ssr: false, loading });
+const CsvViewer = dynamic(() => import("@/tools/CsvViewer"), { ssr: false, loading });
+const InvoiceQuote = dynamic(() => import("@/tools/InvoiceQuote"), { ssr: false, loading });
 
 const map = {
   "image-cropper-resizer": [CropResize],
@@ -121,6 +141,27 @@ const map = {
   "working-days-calculator": [WorkingDays],
   "time-zone-converter": [TimeZone],
   "loan-prepayment-calculator": [LoanPrepay],
+  "recipe-quantity-calculator": [Recipe],
+  "fuel-cost-calculator": [FuelCost],
+  "split-bill-calculator": [SplitBill],
+  "json-to-typescript": [JsonToTs],
+  "sql-formatter": [SqlFormat],
+  "cron-expression-builder": [Cron],
+  "html-entity-encoder": [HtmlEntity],
+  "markdown-table-generator": [MarkdownTable],
+  "email-signature-generator": [EmailSignature],
+  "color-contrast-checker": [ContrastChecker],
+  "poster-maker": [Poster],
+  "meeting-agenda-builder": [Agenda],
+  "label-maker": [Labels],
+  "resume-builder": [Resume],
+  "file-checksum-calculator": [Checksum],
+  "file-metadata-viewer": [FileMeta],
+  "qr-code-reader": [QrReader],
+  "text-to-speech": [Tts],
+  "csv-viewer": [CsvViewer],
+  "invoice-generator": [InvoiceQuote, { kind: "invoice" }],
+  "quotation-generator": [InvoiceQuote, { kind: "quotation" }],
 };
 
 export default function ToolRenderer({ slug }) {

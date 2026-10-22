@@ -284,6 +284,11 @@ code, kbd, pre { font-family: var(--mono); }
 .cat-card:hover .cat-foot svg { transform: translateX(5px); }
 .cat-count { color: var(--c); }
 
+@media (min-width: 961px) {
+  /* a lone last category card sits in the middle column */
+  .cat-grid > .cat-card:last-child:nth-child(3n + 1) { grid-column: 2; }
+}
+
 /* filter chips */
 .chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 30px; }
 .chip {
@@ -366,7 +371,7 @@ code, kbd, pre { font-family: var(--mono); }
 
 /* ================= Footer ================= */
 .footer { margin-top: 60px; border-top: 1px solid var(--border); padding: 60px 0 30px; background: var(--bg-2); }
-.footer-grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 28px 22px; }
+.footer-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 32px 22px; }
 .footer-grid .footer-about { grid-column: 1 / -1; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
 .footer h4 { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 14px; }
 .footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }

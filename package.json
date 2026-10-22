@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "gifuct-js": "2.1.2",
+    "jsqr": "1.4.0",
     "lucide-react": "0.544.0",
     "music-metadata": "11.16.1",
     "next": "15.5.4",
@@ -19,6 +20,7 @@
     "qrcode": "1.5.4",
     "react": "19.1.1",
     "react-dom": "19.1.1",
+    "sql-formatter": "15.8.2",
     "terser": "5.44.0",
     "tesseract.js": "6.0.1"
   }

@@ -61,6 +61,8 @@ const howTo = {
   developer: ["Paste your input or type directly in the editor.", "Pick the operation — results appear in real time.", "Copy the output to your clipboard or download it."],
   seo: ["Enter your page details, URLs or rules.", "Previews and generated code update live as you type.", "Copy the code or download the file for your website."],
   media: ["Add your media file or enter the values.", "Inspect the details and adjust options instantly.", "Copy the result or download the converted files."],
+  office: ["Fill in your details — everything updates in the live preview.", "Adjust the layout, colours and options until it looks right.", "Click Save as PDF / Print and choose “Save as PDF” in the print window."],
+  utilities: ["Choose your file or enter your text — it stays on your device.", "Review the results and adjust options as needed.", "Copy, export or download what you need."],
   text: ["Paste or type your text into the editor.", "Choose the options you need — output updates live.", "Copy the result with one click or download as .txt."],
 };
 
