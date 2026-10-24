@@ -82,6 +82,11 @@ const QrReader = dynamic(() => import("@/tools/QrReader"), { ssr: false, loading
 const Tts = dynamic(() => import("@/tools/Tts"), { ssr: false, loading });
 const CsvViewer = dynamic(() => import("@/tools/CsvViewer"), { ssr: false, loading });
 const InvoiceQuote = dynamic(() => import("@/tools/InvoiceQuote"), { ssr: false, loading });
+const HindiTyping = dynamic(() => import("@/tools/HindiTyping"), { ssr: false, loading });
+const HindiToEnglish = dynamic(() => import("@/tools/HindiToEnglish"), { ssr: false, loading });
+const TypingTest = dynamic(() => import("@/tools/TypingTest"), { ssr: false, loading });
+const TypingPractice = dynamic(() => import("@/tools/TypingPractice"), { ssr: false, loading });
+const Calculator = dynamic(() => import("@/tools/Calculator"), { ssr: false, loading });
 
 const map = {
   "image-cropper-resizer": [CropResize],
@@ -160,6 +165,12 @@ const map = {
   "qr-code-reader": [QrReader],
   "text-to-speech": [Tts],
   "csv-viewer": [CsvViewer],
+  "online-calculator": [Calculator],
+  "english-to-hindi-typing": [HindiTyping],
+  "hindi-to-english-typing": [HindiToEnglish],
+  "english-typing-test": [TypingTest, { lang: "en" }],
+  "hindi-typing-test": [TypingTest, { lang: "hi" }],
+  "typing-practice": [TypingPractice],
   "invoice-generator": [InvoiceQuote, { kind: "invoice" }],
   "quotation-generator": [InvoiceQuote, { kind: "quotation" }],
 };
