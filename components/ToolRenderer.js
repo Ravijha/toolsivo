@@ -87,6 +87,17 @@ const HindiToEnglish = dynamic(() => import("@/tools/HindiToEnglish"), { ssr: fa
 const TypingTest = dynamic(() => import("@/tools/TypingTest"), { ssr: false, loading });
 const TypingPractice = dynamic(() => import("@/tools/TypingPractice"), { ssr: false, loading });
 const Calculator = dynamic(() => import("@/tools/Calculator"), { ssr: false, loading });
+const CaseAnalyzer = dynamic(() => import("@/tools/CaseAnalyzer"), { ssr: false, loading });
+const CharFrequency = dynamic(() => import("@/tools/CharFrequency"), { ssr: false, loading });
+const UnicodeInspector = dynamic(() => import("@/tools/UnicodeInspector"), { ssr: false, loading });
+const TextBinary = dynamic(() => import("@/tools/TextBinary"), { ssr: false, loading });
+const XmlFormat = dynamic(() => import("@/tools/XmlFormat"), { ssr: false, loading });
+const JwtDecoder = dynamic(() => import("@/tools/JwtDecoder"), { ssr: false, loading });
+const UuidValidator = dynamic(() => import("@/tools/UuidValidator"), { ssr: false, loading });
+const BoxShadow = dynamic(() => import("@/tools/BoxShadow"), { ssr: false, loading });
+const Flexbox = dynamic(() => import("@/tools/Flexbox"), { ssr: false, loading });
+const CssGrid = dynamic(() => import("@/tools/CssGrid"), { ssr: false, loading });
+const DpiCalculator = dynamic(() => import("@/tools/DpiCalculator"), { ssr: false, loading });
 
 const map = {
   "image-cropper-resizer": [CropResize],
@@ -171,6 +182,17 @@ const map = {
   "english-typing-test": [TypingTest, { lang: "en" }],
   "hindi-typing-test": [TypingTest, { lang: "hi" }],
   "typing-practice": [TypingPractice],
+  "case-sensitive-text-analyzer": [CaseAnalyzer],
+  "character-frequency-counter": [CharFrequency],
+  "unicode-character-inspector": [UnicodeInspector],
+  "text-to-binary": [TextBinary],
+  "xml-formatter": [XmlFormat],
+  "jwt-decoder": [JwtDecoder],
+  "uuid-validator": [UuidValidator],
+  "css-box-shadow-generator": [BoxShadow],
+  "css-flexbox-playground": [Flexbox],
+  "css-grid-generator": [CssGrid],
+  "image-dpi-calculator": [DpiCalculator],
   "invoice-generator": [InvoiceQuote, { kind: "invoice" }],
   "quotation-generator": [InvoiceQuote, { kind: "quotation" }],
 };
