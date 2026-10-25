@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { Heart } from "lucide-react";
+import { Heart, Gamepad2 } from "lucide-react";
 import Logo from "./Logo";
 import { categories, tools, toolsIn } from "@/lib/tools";
+import { games } from "@/lib/games";
 
 export default function Footer() {
   return (
@@ -10,7 +11,7 @@ export default function Footer() {
         <div className="footer-grid">
           <div className="footer-about">
             <Logo size={34} showDomain />
-            <p>{tools.length} free, fast and private online tools. Everything runs in your browser — your files never leave your device.</p>
+            <p>{tools.length} free, fast and private online tools. Everything runs in your browser — your files never leave your device. Plus {games.length} free games in the <Link href="/games/" className="footer-games-link">Game Zone</Link>.</p>
           </div>
           {categories.map((c) => (
             <div key={c.id}>
@@ -22,6 +23,14 @@ export default function Footer() {
               </ul>
             </div>
           ))}
+          <div className="footer-games">
+            <h4><Link href="/games/"><Gamepad2 size={16} /> Game Zone</Link></h4>
+            <ul>
+              {games.map((g) => (
+                <li key={g.slug}><Link href={`/games/${g.slug}`}>{g.name}</Link></li>
+              ))}
+            </ul>
+          </div>
         </div>
         <div className="footer-bottom">
           <span>© {new Date().getFullYear()} Toolsivo.com — All rights reserved.</span>

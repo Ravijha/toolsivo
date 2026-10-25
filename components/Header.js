@@ -72,6 +72,7 @@ export default function Header() {
             <button className="search-trigger" onClick={openPalette} aria-label="Search tools">
               <Search size={17} /> <span>Search {tools.length} tools…</span> <kbd>Ctrl K</kbd>
             </button>
+            <Link href="/games" className="btn btn-icon games-quick" aria-label="Game Zone" title="Game Zone"><Gamepad2 size={19} /></Link>
             <ThemeToggle />
             <Link href="/tools" className="btn btn-primary btn-sm" style={{ height: 40 }}>All tools</Link>
             <button className="btn btn-ghost btn-icon menu-btn" onClick={() => setOpen(!open)} aria-label="Menu">

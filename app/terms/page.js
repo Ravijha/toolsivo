@@ -4,9 +4,9 @@ import { SITE, pageMeta } from "@/lib/site";
 
 export const metadata = pageMeta({
   title: "Terms and Conditions",
-  description: "The terms and conditions for using Toolsivo’s free online image, PDF, calculator, developer, text and design tools.",
+  description: "The terms and conditions for using Toolsivo’s free online image, PDF, calculator, developer, text and design tools and the free games in the Game Zone.",
   path: "/terms/",
-  keywords: ["toolsivo terms and conditions", "terms of use", "terms of service"],
+  keywords: ["toolsivo terms and conditions", "terms of use", "terms of service", "game zone terms"],
 });
 
 const sections = [
@@ -18,7 +18,7 @@ const sections = [
     id: "service", title: "The Service",
     body: (
       <>
-        <p>{SITE.name} provides free, browser-based utilities for working with images, PDFs, text and code, as well as calculators for finance, dates and everyday maths. Tools run locally in your browser; your files are not uploaded to our servers.</p>
+        <p>{SITE.name} provides free, browser-based utilities for working with images, PDFs, text and code, as well as calculators for finance, dates and everyday maths, and free casual games in our <Link href="/games/">Game Zone</Link>. Tools and games run locally in your browser; your files are not uploaded to our servers.</p>
         <p>We may add, change, suspend or discontinue any tool or feature at any time without notice. The Service is offered free of charge and may be supported by advertising.</p>
       </>
     ),
@@ -40,6 +40,21 @@ const sections = [
     ),
   },
   {
+    id: "games", title: "Game Zone",
+    body: (
+      <>
+        <p>The games in our <Link href="/games/">Game Zone</Link> are provided free of charge for personal entertainment and practice only.</p>
+        <ul>
+          <li><strong>No money, prizes or gambling.</strong> Games involve no real money, betting, wagering, rewards or prizes, and there are no in-game purchases. Scores have no monetary value.</li>
+          <li><strong>Nothing is saved.</strong> Scores and progress last only while the page is open. We are not responsible for progress lost when you close or refresh the page.</li>
+          <li><strong>Health and safety.</strong> Some games include fast movement, flashing colours and sound. If you or anyone in your family has epilepsy or a sensitivity to flashing lights, consult a doctor before playing. Take regular breaks, and stop playing if you feel dizzy, tired or unwell.</li>
+          <li><strong>Children.</strong> The games are family-friendly. Younger children should play with a parent’s or guardian’s supervision.</li>
+          <li><strong>Fair use.</strong> You may play the games as often as you like, but you may not copy, re-host, frame, sell or redistribute them, or use bots or scripts to automate play.</li>
+        </ul>
+      </>
+    ),
+  },
+  {
     id: "content", title: "Your content",
     body: <p>You keep all rights to the files and text you process with our tools. Because processing happens on your device, we do not receive, store or claim any ownership of your content. You are solely responsible for your content and for making sure you have the right to use and modify it.</p>,
   },
@@ -48,13 +63,14 @@ const sections = [
     body: (
       <>
         <p>The Service — including its design, logo, name, text, graphics and original source code — is owned by {SITE.name} and protected by copyright, trademark and other laws. You may not copy, reproduce, distribute or create derivative works from any part of the Service without our prior written permission, except as permitted by law. Output files you create with our tools belong to you.</p>
+        <p>The games in the Game Zone — their code, artwork, sounds, puzzles, chess positions, crossword clues and word lists — were created for {SITE.name}. They are based on traditional, public-domain game ideas (such as tic-tac-toe, chess, crosswords and word guessing), use generic descriptive names, and do not copy the code, artwork, sounds or branding of any commercial game.</p>
         <p>The Service also includes third-party open-source software, which remains the property of its respective authors and is licensed under its own terms. See our <Link href="/licenses/">Open-Source Licenses</Link> page for details.</p>
       </>
     ),
   },
   {
     id: "trademarks", title: "Trademarks",
-    body: <p>“QR Code” is a registered trademark of DENSO WAVE INCORPORATED. Google, YouTube, Facebook, Instagram, WhatsApp, X, LinkedIn, Pinterest and other names mentioned on the Service are trademarks of their respective owners and are used only to describe compatibility. {SITE.name} is not affiliated with, endorsed by or sponsored by any of them. See the <Link href="/licenses/#trademarks">full trademark notices</Link>.</p>,
+    body: <p>“QR Code” is a registered trademark of DENSO WAVE INCORPORATED. “Sudoku” is a trademark of Nikoli Co., Ltd. in Japan. Google, YouTube, Facebook, Instagram, WhatsApp, X, LinkedIn, Pinterest and other names mentioned on the Service are trademarks of their respective owners and are used only to describe compatibility. {SITE.name} is not affiliated with, endorsed by or sponsored by any of them. See the <Link href="/licenses/#trademarks">full trademark notices</Link>.</p>,
   },
   {
     id: "accuracy", title: "Calculators and accuracy",

@@ -4,9 +4,9 @@ import { SITE, pageMeta } from "@/lib/site";
 
 export const metadata = pageMeta({
   title: "Privacy Policy",
-  description: "Read how Toolsivo protects your privacy: files are processed in your browser and never uploaded, how we use cookies and Google AdSense, and your rights under GDPR and Indian law.",
+  description: "Read how Toolsivo protects your privacy: files are processed in your browser and never uploaded, Game Zone scores are never saved, how we use cookies and Google AdSense, and your rights under GDPR and Indian law.",
   path: "/privacy/",
-  keywords: ["toolsivo privacy policy", "privacy", "cookies", "google adsense", "gdpr"],
+  keywords: ["toolsivo privacy policy", "privacy", "cookies", "google adsense", "gdpr", "game zone privacy"],
 });
 
 const ext = (href, text) => <a href={href} target="_blank" rel="noopener noreferrer">{text}</a>;
@@ -16,7 +16,7 @@ const sections = [
     id: "overview", title: "Overview",
     body: (
       <>
-        <p>This Privacy Policy explains how {SITE.name} (“we”, “us”, “our”) collects, uses and protects information when you visit our website and use our free online tools (the “Service”). By using the Service you agree to the practices described in this policy.</p>
+        <p>This Privacy Policy explains how {SITE.name} (“we”, “us”, “our”) collects, uses and protects information when you visit our website and use our free online tools and the games in our Game Zone (the “Service”). By using the Service you agree to the practices described in this policy.</p>
         <p>Our core principle is simple: <strong>the files and text you work with in our tools stay on your device.</strong></p>
       </>
     ),
@@ -36,6 +36,21 @@ const sections = [
     ),
   },
   {
+    id: "games", title: "Game Zone",
+    body: (
+      <>
+        <p>All games in our <Link href="/games/">Game Zone</Link> run entirely inside your web browser. When you play:</p>
+        <ul>
+          <li>There is no account, sign-up, chat, multiplayer server or leaderboard, and we never ask for your name, age or any other personal information.</li>
+          <li>Your moves, answers, typing, scores and best scores are kept only in your browser’s memory while the page is open. They are <strong>not saved</strong> on your device and <strong>never sent</strong> to us or anyone else. Closing or refreshing the page clears them.</li>
+          <li>Keyboard, mouse and touch input is handled locally. Game sounds are generated on your device with the Web Audio API, and the full-screen button uses your browser’s standard full-screen feature.</li>
+          <li>Games do not use your camera, microphone or location, and there are no in-game purchases.</li>
+        </ul>
+        <p>As on every other page, Google Analytics may record that a game page was visited (see “Cookies” below), but not what you did inside the game.</p>
+      </>
+    ),
+  },
+  {
     id: "collect", title: "Information we collect",
     body: (
       <>
@@ -44,7 +59,7 @@ const sections = [
         <h3>Information collected automatically</h3>
         <p>Like most websites, our hosting provider and advertising partners may automatically receive standard technical data such as your IP address, browser type, device type, operating system, referring page, pages visited and the date and time of your visit. This helps keep the Service secure and working properly.</p>
         <h3>Information stored on your device</h3>
-        <p>Some tools save information in your browser’s local storage so you don’t have to retype it: your light/dark theme, the business details and numbering in the Invoice and Quotation generators, your Résumé Builder content, and your Email Signature details. This data stays on your device — it is never sent to us — and you can delete it at any time by clearing your browser’s site data.</p>
+        <p>Some tools save information in your browser’s local storage so you don’t have to retype it: your light/dark theme, the business details and numbering in the Invoice and Quotation generators, your Résumé Builder content, and your Email Signature details. Games in the Game Zone do not use local storage. This data stays on your device — it is never sent to us — and you can delete it at any time by clearing your browser’s site data.</p>
         <h3>Camera and microphone</h3>
         <p>The QR Code Reader can use your camera, but only after you press “Start camera” and grant permission. The video is analysed on your device to find a QR code; it is never recorded, stored or uploaded. No tool uses your microphone.</p>
         <h3>Text to speech</h3>
@@ -138,7 +153,7 @@ const sections = [
   },
   {
     id: "children", title: "Children’s privacy",
-    body: <p>The Service is not directed at children under 13 (or the minimum age required in your country). We do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us and we will delete it promptly.</p>,
+    body: <p>The Service is not directed at children under 13 (or the minimum age required in your country). We do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us and we will delete it promptly. The games in our Game Zone are family-friendly and collect no personal information, but we recommend that younger children play with a parent’s or guardian’s supervision, as the site may show advertising.</p>,
   },
   {
     id: "changes", title: "Changes to this policy",

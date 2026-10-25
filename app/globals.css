@@ -876,3 +876,15 @@ mark.m.alt { background: color-mix(in srgb, var(--brand-3) 25%, transparent); bo
 .gz-body p { color: var(--muted); font-size: .88rem; margin-top: 4px; }
 .gz-tag { display: inline-block; margin-top: 10px; font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
 @media (max-width: 960px) { .gz-float { display: none; } }
+
+/* Game Zone quick links */
+.games-quick { display: none; color: #fff !important; background: linear-gradient(120deg, #7c3aed, #ec4899); box-shadow: 0 6px 16px -8px rgba(236, 72, 153, .8); }
+.games-quick:hover { filter: brightness(1.08); }
+@media (max-width: 960px) { .games-quick { display: inline-flex; } }
+@media (max-width: 400px) {
+  .header-actions { gap: 4px; }
+  .header-actions .btn-icon, .header-actions .search-trigger { width: 34px; }
+  .header-actions .btn-primary { padding: 0 10px; }
+}
+.footer-games h4 a { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; margin-left: -10px; border-radius: 99px; color: #fff; background: linear-gradient(120deg, #7c3aed, #ec4899); }
+.footer-games-link { color: var(--brand); font-weight: 700; }
