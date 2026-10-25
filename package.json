@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "postinstall": "node scripts/copy-pdfjs.mjs",
+    "postinstall": "node scripts/copy-pdfjs.mjs && node scripts/copy-ocr.mjs",
     "prebuild": "node scripts/gen-licenses.mjs",
     "dev": "next dev",
     "build": "next build",

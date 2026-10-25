@@ -61,7 +61,7 @@ export default function Home() {
           </p>
           <HeroSearch />
           <div className="hero-tags">
-            {["image-compressor", "merge-pdf", "passport-photo-maker", "gst-calculator", "json-formatter", "youtube-thumbnail-resizer"].map((s) => {
+            {["image-compressor", "merge-pdf", "passport-photo-maker", "gst-calculator", "json-formatter", "video-thumbnail-resizer"].map((s) => {
               const t = tools.find((x) => x.slug === s);
               return <Link key={s} href={`/tools/${s}`}>{t.name}</Link>;
             })}

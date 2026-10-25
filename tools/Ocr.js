@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { Download, RefreshCw, ScanText, ClipboardPaste } from "lucide-react";
 import { Dropzone, Field, Toggle, CopyBtn, Msg, Stat, Spinner } from "@/components/ui";
 import { downloadText, baseName, loadImage, makeCanvas, isImage } from "@/lib/file";
+import { SITE } from "@/lib/site";
 
 const LANGS = [
   ["eng", "English"], ["hin", "Hindi"], ["ben", "Bengali"], ["tam", "Tamil"], ["tel", "Telugu"], ["mar", "Marathi"],
@@ -78,9 +79,15 @@ export default function Ocr() {
       if (workerRef.current.langs !== key) {
         await workerRef.current.worker?.terminate();
         setStatus({ busy: true, msg: "Downloading language data (first time only)…", p: 0 });
+        // Engine and language data are served from our own site (public/tesseract, public/tessdata).
+        const root = `${window.location.origin}${SITE.basePath}`;
         workerRef.current = {
           langs: key,
           worker: await createWorker(langs, 1, {
+            workerPath: `${root}/tesseract/worker.min.js`,
+            corePath: `${root}/tesseract`,
+            langPath: `${root}/tessdata`,
+            cacheMethod: "none",
             logger: (m) => {
               if (m.status === "recognizing text") setStatus({ busy: true, msg: "Reading text…", p: Math.round(m.progress * 100) });
               else if (/loading|initializ/i.test(m.status)) setStatus({ busy: true, msg: "Loading OCR engine…", p: Math.round((m.progress || 0) * 100) });
@@ -95,7 +102,7 @@ export default function Ocr() {
       setConf(Math.round(data.confidence));
       if (!data.text.trim()) setErr("No text was found. Try a sharper image, another language, or turn image enhancement off.");
     } catch (e) {
-      setErr("Text recognition failed. Check your internet connection (needed once to load the language model) and try again.");
+      setErr("Text recognition failed. Check your internet connection (needed to load the language model) and try again.");
       workerRef.current = { worker: null, langs: "" };
     }
     setStatus({ busy: false, msg: "", p: 0 });
@@ -156,7 +163,7 @@ export default function Ocr() {
           <button className="btn" disabled={!text} onClick={() => downloadText(text, `${baseName(file.name)}-text.txt`)}><Download size={16} /> TXT</button>
         </div>
         <button className="btn" onClick={() => setFile(null)} disabled={status.busy}><RefreshCw size={16} /> New image</button>
-        <small className="muted">Your image is processed on your device. The OCR engine and language model (a few MB) download once from a public CDN and are then cached.</small>
+        <small className="muted">Your image is processed on your device. The OCR engine and language model (a few MB) load from Toolsivo itself — nothing is sent anywhere.</small>
       </div>
     </div>
   );

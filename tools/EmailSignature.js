@@ -11,8 +11,8 @@ const url = (u) => (!u ? "" : /^https?:\/\//i.test(u) ? u : `https://${u}`);
 
 export default function EmailSignature() {
   const [d, setD] = usePersist("toolsivo-signature", {
-    name: "Neha Kapoor", title: "Marketing Manager", company: "Brightcart Technologies", phone: "+91 98765 43210", email: "neha@brightcart.in",
-    website: "www.brightcart.in", address: "Baner Road, Pune 411045", photo: "", linkedin: "linkedin.com/in/nehakapoor", x: "", instagram: "", facebook: "", youtube: "", github: "",
+    name: "Your Name", title: "Your Job Title", company: "Your Company", phone: "+91 00000 00000", email: "you@example.com",
+    website: "www.example.com", address: "Your City, India", photo: "", linkedin: "linkedin.com/in/your-profile", x: "", instagram: "", facebook: "", youtube: "", github: "",
     disclaimer: "", color: "#4f46e5", font: FONTS[0], layout: "classic",
   });
   const [copied, setCopied] = useState(false);

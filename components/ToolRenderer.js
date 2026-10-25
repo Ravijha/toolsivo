@@ -134,7 +134,7 @@ const map = {
   "text-compare": [TextCompare],
   "slug-generator": [Slug],
   "lorem-ipsum-generator": [Lorem],
-  "youtube-thumbnail-resizer": [CanvasResizer, { set: "youtube" }],
+  "video-thumbnail-resizer": [CanvasResizer, { set: "youtube" }],
   "social-media-image-resizer": [CanvasResizer, { set: "social" }],
   "favicon-generator": [Favicon],
   "color-palette-generator": [Palette],

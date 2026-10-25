@@ -33,8 +33,8 @@ const item = (desc = "", qty = 1, rate = 0, tax = 18, code = "") => ({ id: ++uid
 export default function InvoiceQuote({ kind = "invoice" }) {
   const isInv = kind === "invoice";
   const [seller, setSeller] = usePersist("toolsivo-doc-seller", {
-    name: "Your Business Name", address: "123, Business Street\nMumbai, Maharashtra 400001", gstin: "", email: "billing@yourbusiness.com", phone: "+91 98765 43210",
-    bank: "Bank: HDFC Bank\nA/c No: 000000000000\nIFSC: HDFC0000000", upi: "", logo: "", color: "#4f46e5", layout: "modern", signature: "",
+    name: "Your Business Name", address: "123, Business Street\nMumbai, Maharashtra 400001", gstin: "", email: "billing@example.com", phone: "+91 00000 00000",
+    bank: "Bank: Your Bank Name\nA/c No: 000000000000\nIFSC: XXXX0000000", upi: "", logo: "", color: "#4f46e5", layout: "modern", signature: "",
   });
   const [counter, setCounter] = usePersist(`toolsivo-${kind}-no`, 1);
   const [buyer, setBuyer] = useState({ name: "Client Company Pvt Ltd", address: "45, Client Road\nBengaluru, Karnataka 560001", gstin: "", email: "" });

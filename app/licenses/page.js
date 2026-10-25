@@ -16,7 +16,7 @@ const MAIN = [
   ["PDF.js (Mozilla)", "PDF page rendering and compression", "Apache-2.0", "https://github.com/mozilla/pdf.js"],
   ["pdf-lib", "Merge, split, rotate and create PDFs", "MIT", "https://github.com/Hopding/pdf-lib"],
   ["Tesseract.js", "Image to Text (OCR) engine", "Apache-2.0", "https://github.com/naptha/tesseract.js"],
-  ["Tesseract language data", "OCR language models (downloaded at use)", "Apache-2.0", "https://github.com/tesseract-ocr/tessdata"],
+  ["Tesseract language data", "OCR language models (served from Toolsivo)", "Apache-2.0", "https://github.com/tesseract-ocr/tessdata_best"],
   ["node-qrcode", "QR code generation", "MIT", "https://github.com/soldair/node-qrcode"],
   ["music-metadata", "Audio metadata reading", "MIT", "https://github.com/Borewit/music-metadata"],
   ["gifuct-js", "GIF decoding", "MIT", "https://github.com/matt-way/gifuct-js"],
@@ -63,7 +63,7 @@ const sections = [
             </tbody>
           </table>
         </div>
-        <p>The complete list of every bundled component — with its copyright notice and full license text — is available in <a href={`${SITE.basePath}/third-party-licenses.txt`}>third-party-licenses.txt</a>.</p>
+        <p>The complete list of every bundled component — with its copyright notice and full license text — is available in <a href={`${SITE.basePath}/third-party-licenses.txt`}>third-party-licenses.txt</a>. The OCR language data is served unmodified with its license in <a href={`${SITE.basePath}/tessdata/LICENSE.txt`}>tessdata/LICENSE.txt</a>.</p>
       </>
     ),
   },

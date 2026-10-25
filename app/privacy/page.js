@@ -85,6 +85,7 @@ const sections = [
     body: (
       <>
         <p>Cookies are small text files stored on your device. We use Google Analytics, which sets cookies to help us understand how visitors use the site (for example, which tools are most popular) in aggregate. Third-party services we use — such as Google AdSense — may also place and read cookies, web beacons or similar technologies on your browser to serve and measure advertisements. You can opt out of Google Analytics with the {ext("https://tools.google.com/dlpage/gaoptout", "Google Analytics opt-out browser add-on")}.</p>
+        <p>For visitors in the European Economic Area, the UK and Switzerland, we use Google Consent Mode with analytics and advertising cookies <strong>turned off by default</strong>. In those regions Google Analytics does not set or read cookies and only receives basic, cookieless signals.</p>
         <p>You can choose to disable or delete cookies through your browser settings. Note that some features of third-party services may not work correctly without them.</p>
       </>
     ),
@@ -114,7 +115,6 @@ const sections = [
           <li><strong>Google Analytics</strong> — anonymous usage statistics ({ext("https://policies.google.com/technologies/partner-sites", "how Google uses data")}).</li>
           <li><strong>Google AdSense</strong> — advertising ({ext("https://policies.google.com/privacy", "privacy policy")}).</li>
           <li><strong>FormSubmit</strong> — delivers contact form messages to our inbox ({ext("https://formsubmit.co/", "formsubmit.co")}).</li>
-          <li><strong>jsDelivr CDN</strong> — the Image to Text (OCR) tool downloads its open-source recognition engine and language files from jsDelivr. Your images are not sent; they are processed on your device.</li>
           <li><strong>Google Fonts</strong> — web fonts, self-hosted at build time so no request is made to Google when you browse.</li>
         </ul>
         <p>Our website may contain links to other sites. We are not responsible for the content or privacy practices of those sites.</p>
