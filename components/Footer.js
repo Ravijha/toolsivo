@@ -27,6 +27,7 @@ export default function Footer() {
           <span>© {new Date().getFullYear()} Toolsivo.com — All rights reserved.</span>
           <span style={{ display: "flex", gap: 18, alignItems: "center", flexWrap: "wrap" }}>
             <Link href="/tools">All tools</Link>
+            <Link href="/games/">Game Zone</Link>
             <Link href="/about/">About</Link>
             <Link href="/contact/">Contact</Link>
             <Link href="/privacy/">Privacy Policy</Link>

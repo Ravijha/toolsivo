@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { ChevronDown, Menu, Moon, Search, Sun, X } from "lucide-react";
+import { ChevronDown, Gamepad2, Menu, Moon, Search, Sun, X } from "lucide-react";
 import Logo from "./Logo";
 import { CatIcon } from "./ToolIcon";
 import { categories, tools, toolsIn } from "@/lib/tools";
@@ -66,6 +66,7 @@ export default function Header() {
             <Link className={`nav-link ${path === "/category/pdf" ? "active" : ""}`} href="/category/pdf">PDF</Link>
             <Link className={`nav-link ${path === "/category/calculators" ? "active" : ""}`} href="/category/calculators">Calculators</Link>
             <Link className={`nav-link ${path === "/category/developer" ? "active" : ""}`} href="/category/developer">Developer</Link>
+            <Link className={`nav-link games ${path.startsWith("/games") ? "active" : ""}`} href="/games"><Gamepad2 size={16} /> Game Zone</Link>
           </nav>
           <div className="header-actions">
             <button className="search-trigger" onClick={openPalette} aria-label="Search tools">
@@ -81,6 +82,10 @@ export default function Header() {
       </header>
       {open && (
         <div className="mobile-menu">
+          <Link href="/games">
+            <span style={{ width: 38, height: 38, borderRadius: 12, display: "grid", placeItems: "center", color: "#fff", background: "linear-gradient(120deg, #7c3aed, #ec4899)" }}><Gamepad2 size={20} /></span> Game Zone
+            <span className="muted" style={{ marginLeft: "auto", fontSize: ".85rem" }}>Play free</span>
+          </Link>
           {categories.map((c) => (
             <Link key={c.id} href={`/category/${c.id}`}>
               <CatIcon id={c.id} size={38} /> {c.name}

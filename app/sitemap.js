@@ -1,4 +1,5 @@
 import { categories, tools } from "@/lib/tools";
+import { games } from "@/lib/games";
 import { abs } from "@/lib/site";
 
 export const dynamic = "force-static";
@@ -11,6 +12,8 @@ export default function sitemap() {
     page("/tools/", 0.9, "weekly"),
     ...categories.map((c) => page(`/category/${c.id}/`, 0.8)),
     ...tools.map((t) => page(`/tools/${t.slug}/`, t.popular ? 0.9 : 0.8)),
+    page("/games/", 0.9, "weekly"),
+    ...games.map((g) => page(`/games/${g.slug}/`, g.hot ? 0.8 : 0.7)),
     page("/about/", 0.5),
     page("/contact/", 0.5),
     page("/privacy/", 0.3, "yearly"),
