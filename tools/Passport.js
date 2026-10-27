@@ -91,6 +91,7 @@ export default function Passport() {
       <div className="stack">
         <Dropzone onFiles={open} title="Upload a front-facing photo" hint="Use a plain light background and even lighting for best results" />
         <Msg>Tip: stand about 1 m from a plain white wall, face the camera straight on, keep a neutral expression and remove glasses.</Msg>
+        <small className="muted">Toolsivo is not a government service and is not affiliated with any passport or visa authority. Photo rules change — always check the latest requirements of the authority you are applying to.</small>
       </div>
     );
 

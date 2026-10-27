@@ -59,7 +59,7 @@ const sections = [
         <h3>Information collected automatically</h3>
         <p>Like most websites, our hosting provider and advertising partners may automatically receive standard technical data such as your IP address, browser type, device type, operating system, referring page, pages visited and the date and time of your visit. This helps keep the Service secure and working properly.</p>
         <h3>Information stored on your device</h3>
-        <p>Some tools save information in your browser’s local storage so you don’t have to retype it: your light/dark theme, the business details and numbering in the Invoice and Quotation generators, your Résumé Builder content, and your Email Signature details. Games in the Game Zone do not use local storage. This data stays on your device — it is never sent to us — and you can delete it at any time by clearing your browser’s site data.</p>
+        <p>Some tools save information in your browser’s local storage so you don’t have to retype it: your light/dark theme, the business details and numbering in the Invoice and Quotation generators, your Résumé Builder content, your Meeting Agenda and Label Maker content, and your Email Signature details. Games in the Game Zone do not use local storage. This data stays on your device — it is never sent to us — and you can delete it at any time by clearing your browser’s site data.</p>
         <h3>Camera and microphone</h3>
         <p>The QR Code Reader can use your camera, but only after you press “Start camera” and grant permission. The video is analysed on your device to find a QR code; it is never recorded, stored or uploaded. No tool uses your microphone.</p>
         <h3>Text to speech</h3>
