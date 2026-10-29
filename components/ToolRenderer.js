@@ -98,6 +98,7 @@ const BoxShadow = dynamic(() => import("@/tools/BoxShadow"), { ssr: false, loadi
 const Flexbox = dynamic(() => import("@/tools/Flexbox"), { ssr: false, loading });
 const CssGrid = dynamic(() => import("@/tools/CssGrid"), { ssr: false, loading });
 const DpiCalculator = dynamic(() => import("@/tools/DpiCalculator"), { ssr: false, loading });
+const UnitConverter = dynamic(() => import("@/tools/UnitConverter"), { ssr: false, loading });
 
 const map = {
   "image-cropper-resizer": [CropResize],
@@ -193,6 +194,7 @@ const map = {
   "css-flexbox-playground": [Flexbox],
   "css-grid-generator": [CssGrid],
   "image-dpi-calculator": [DpiCalculator],
+  "unit-converter": [UnitConverter],
   "invoice-generator": [InvoiceQuote, { kind: "invoice" }],
   "quotation-generator": [InvoiceQuote, { kind: "quotation" }],
 };

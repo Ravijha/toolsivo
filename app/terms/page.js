@@ -77,6 +77,7 @@ const sections = [
     body: (
       <>
         <p>Our calculators (including GST, EMI, salary/take-home, age, discount, percentage and date tools) provide <strong>estimates for general information and planning only</strong>. Tax rules, rates and slabs change, and individual circumstances vary.</p>
+        <p>The Unit Converter uses standard conversion factors, but traditional land units such as Bigha, Kattha and Dhur differ between states and even districts. Land conversions are approximate — always confirm area with official land records or a registered surveyor before buying, selling or registering property.</p>
         <p>Results are not financial, tax, legal or professional advice. Always verify important figures with a qualified professional or official source before making decisions.</p>
       </>
     ),
