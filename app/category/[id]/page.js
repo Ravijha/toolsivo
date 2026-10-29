@@ -3,7 +3,7 @@ import { categories, getCategory, toolsIn } from "@/lib/tools";
 import { CatIcon } from "@/components/ToolIcon";
 import ToolCard from "@/components/ToolCard";
 import JsonLd from "@/components/JsonLd";
-import { abs, pageMeta } from "@/lib/site";
+import { abs, pageMeta, fitDesc } from "@/lib/site";
 
 export const dynamicParams = false;
 export function generateStaticParams() {
@@ -16,7 +16,8 @@ export async function generateMetadata({ params }) {
   if (!c) return {};
   return pageMeta({
     title: `${c.name} — Free Online ${c.short} Tools`,
-    description: `${c.tagline} ${toolsIn(id).map((t) => t.name).join(", ")}.`,
+    // tagline plus as many tool names as fit in a search snippet
+    description: toolsIn(id).reduce((d, t, i) => fitDesc(d, `${i ? "," : ""} ${t.name}`, 150), c.tagline) + " and more.",
     path: `/category/${c.id}/`,
     keywords: [c.name.toLowerCase(), `free ${c.short.toLowerCase()} tools`, `online ${c.short.toLowerCase()} tools`, ...toolsIn(id).map((t) => t.name.toLowerCase())],
   });

@@ -5,7 +5,7 @@ import { games, getGame, gameCategories } from "@/lib/games";
 import GameRenderer from "@/components/GameRenderer";
 import GameCard from "@/components/GameCard";
 import JsonLd from "@/components/JsonLd";
-import { abs, pageMeta } from "@/lib/site";
+import { abs, pageMeta, fitDesc } from "@/lib/site";
 
 export const dynamicParams = false;
 export function generateStaticParams() {
@@ -18,7 +18,7 @@ export async function generateMetadata({ params }) {
   if (!g) return {};
   return pageMeta({
     title: `${g.name} — Play Free Online`,
-    description: `${g.desc} Free, no download and no sign-up on Toolsivo Game Zone.`,
+    description: fitDesc(g.desc, " Free, no download and no sign-up."),
     path: `/games/${g.slug}/`,
     keywords: [g.name.toLowerCase(), `${g.name.toLowerCase()} online`, `play ${g.name.toLowerCase()} free`, ...g.tags.split(" "), "free online games"],
   });

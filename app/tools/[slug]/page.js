@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ChevronRight, ShieldCheck, Zap, Gift, Lock } from "lucide-react";
+import { ChevronRight, ChevronDown, ShieldCheck, Zap, Gift, Lock } from "lucide-react";
 import { tools, getTool, getCategory, toolsIn } from "@/lib/tools";
+import { getToolContent } from "@/lib/content";
 import { ToolIcon } from "@/components/ToolIcon";
 import ToolCard from "@/components/ToolCard";
 import ToolRenderer from "@/components/ToolRenderer";
 import JsonLd from "@/components/JsonLd";
-import { abs, pageMeta } from "@/lib/site";
+import { abs, pageMeta, fitDesc } from "@/lib/site";
 
 export const dynamicParams = false;
 export function generateStaticParams() {
@@ -18,23 +19,33 @@ export async function generateMetadata({ params }) {
   const t = getTool(slug);
   if (!t) return {};
   return pageMeta({
-    title: `${t.name} — Free Online Tool`,
-    description: `${t.desc} Free, fast and private — runs entirely in your browser on Toolsivo.`,
+    // keep the full title within ~60 chars so Google doesn't cut it off
+    title: t.name.length > 28 ? `${t.name} — Free Online` : `${t.name} — Free Online Tool`,
+    description: fitDesc(t.desc, " Free, private, runs in your browser."),
     path: `/tools/${t.slug}/`,
     keywords: [t.name.toLowerCase(), `${t.name.toLowerCase()} online`, `free ${t.name.toLowerCase()}`, ...t.tags.split(" "), getCategory(t.cat).name.toLowerCase()],
   });
 }
 
-function toolSchema(t, c) {
+const appCategory = {
+  image: "MultimediaApplication", design: "DesignApplication", media: "MultimediaApplication",
+  developer: "DeveloperApplication", seo: "DeveloperApplication", office: "BusinessApplication", typing: "EducationalApplication",
+};
+
+function toolSchema(t, c, info) {
   return {
     "@context": "https://schema.org",
     "@graph": [
+      ...(info ? [{
+        "@type": "FAQPage",
+        mainEntity: info.faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })),
+      }] : []),
       {
         "@type": "WebApplication",
         name: t.name,
         url: abs(`/tools/${t.slug}/`),
         description: t.desc,
-        applicationCategory: c.id === "developer" ? "DeveloperApplication" : c.id === "calculators" ? "FinanceApplication" : "MultimediaApplication",
+        applicationCategory: appCategory[c.id] || "UtilitiesApplication",
         operatingSystem: "Any (web browser)",
         browserRequirements: "Requires JavaScript. Works in all modern browsers.",
         isAccessibleForFree: true,
@@ -73,10 +84,11 @@ export default async function ToolPage({ params }) {
   if (!t) notFound();
   const c = getCategory(t.cat);
   const related = toolsIn(t.cat).filter((x) => x.slug !== t.slug).slice(0, 4);
+  const info = getToolContent(t.slug);
 
   return (
     <>
-      <JsonLd data={toolSchema(t, c)} />
+      <JsonLd data={toolSchema(t, c, info)} />
       <section className="tool-hero">
         <div className="container">
           <nav className="crumbs" aria-label="Breadcrumb">
@@ -117,7 +129,33 @@ export default async function ToolPage({ params }) {
             <div className="priv"><ShieldCheck size={18} /> Works on desktop and mobile in any modern browser.</div>
           </div>
         </div>
+
+        {info && (
+          <div className="info-card" style={{ marginTop: 20 }}>
+            <h2>About the {t.name}</h2>
+            <p style={{ color: "var(--text-2)", lineHeight: 1.7 }}>{info.about}</p>
+          </div>
+        )}
       </section>
+
+      {info && (
+        <section className="section" style={{ paddingBottom: 0 }}>
+          <div className="container">
+            <div className="section-head">
+              <span className="eyebrow">FAQ</span>
+              <h2>{t.name} — questions, answered</h2>
+            </div>
+            <div className="faq">
+              {info.faq.map(([q, a], i) => (
+                <details key={q} open={i === 0}>
+                  <summary>{q} <ChevronDown size={18} /></summary>
+                  <p>{a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="section" style={{ paddingBottom: 0 }}>
         <div className="container">

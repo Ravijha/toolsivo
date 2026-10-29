@@ -5,7 +5,7 @@ import { abs } from "@/lib/site";
 export const dynamic = "force-static";
 
 export default function sitemap() {
-  const now = new Date("2026-10-21");
+  const now = new Date("2026-10-29");
   const page = (path, priority, changeFrequency = "monthly") => ({ url: abs(path), lastModified: now, changeFrequency, priority });
   return [
     page("/", 1, "weekly"),

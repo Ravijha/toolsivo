@@ -4,7 +4,7 @@ import { SITE, pageMeta } from "@/lib/site";
 
 export const metadata = pageMeta({
   title: "Privacy Policy",
-  description: "Read how Toolsivo protects your privacy: files are processed in your browser and never uploaded, Game Zone scores are never saved, how we use cookies and Google AdSense, and your rights under GDPR and Indian law.",
+  description: "How Toolsivo protects your privacy: files are processed in your browser and never uploaded, how we use cookies and Google AdSense, and your rights.",
   path: "/privacy/",
   keywords: ["toolsivo privacy policy", "privacy", "cookies", "google adsense", "gdpr", "game zone privacy"],
 });
@@ -64,6 +64,8 @@ const sections = [
         <p>The QR Code Reader can use your camera, but only after you press “Start camera” and grant permission. The video is analysed on your device to find a QR code; it is never recorded, stored or uploaded. No tool uses your microphone.</p>
         <h3>Text to speech</h3>
         <p>The Text to Speech tool uses the voices provided by your device and browser. On-device voices process your text locally. Some browsers also offer “online” voices (clearly labelled in the tool); if you choose one, your text is sent to that browser maker’s speech service (for example Google or Microsoft) under their privacy policy.</p>
+        <h3>URL &amp; HTTP Status Checker</h3>
+        <p>To check a link, the URL &amp; HTTP Status Checker requests that URL directly from your browser. The website you check therefore receives a normal visit from you, including your IP address and browser details, under its own privacy policy. The URLs and results are not sent to us.</p>
       </>
     ),
   },

@@ -108,7 +108,7 @@ export default function QrCodeTool() {
           )}
           {(type === "phone" || type === "sms") && (
             <>
-              <Field label="Phone number" hint="Include the country code, e.g. +91 00000 00000"><input className="input" type="tel" value={d.phone} onChange={set("phone")} placeholder="+91 98765 43210" /></Field>
+              <Field label="Phone number" hint="Include the country code, e.g. +91 00000 00000"><input className="input" type="tel" value={d.phone} onChange={set("phone")} placeholder="+91 00000 00000" /></Field>
               {type === "sms" && <Field label="Message (optional)"><textarea className="textarea prose" style={{ minHeight: 90 }} value={d.body} onChange={set("body")} /></Field>}
             </>
           )}
