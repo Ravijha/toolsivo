@@ -380,6 +380,17 @@ code, kbd, pre { font-family: var(--mono); }
 .footer-about p { color: var(--muted); font-size: 0.9rem; margin: 16px 0; max-width: 300px; }
 .footer-bottom { margin-top: 50px; padding-top: 24px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; color: var(--muted); font-size: 0.86rem; }
 .footer-bottom a:hover { color: var(--text); }
+.socials { margin-left: auto; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; padding: 12px 14px 12px 20px; border-radius: 99px; background: var(--elev); border: 1px solid var(--border); box-shadow: var(--shadow-sm); }
+.socials-label { font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.socials-row { display: flex; gap: 10px; }
+.social { --sc: #6d4dff; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; color: #fff; background: var(--sc); box-shadow: 0 6px 16px -8px var(--sc); transition: transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s, filter .25s; }
+.social:hover, .social:focus-visible { transform: translateY(-4px) scale(1.06); box-shadow: 0 14px 26px -10px var(--sc), 0 0 0 4px color-mix(in srgb, var(--sc) 22%, transparent); filter: saturate(1.15); }
+.social-facebook { --sc: #1877f2; }
+.social-instagram { --sc: #e1306c; background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%); }
+.social-x { --sc: #0f1419; }
+:root[data-theme="dark"] .social-x { --sc: #2a2f36; border: 1px solid rgba(255,255,255,.2); }
+.social-youtube { --sc: #ff0000; }
+@media (max-width: 720px) { .socials { margin-left: 0; width: 100%; justify-content: space-between; } }
 
 /* ================= Command palette ================= */
 .palette-backdrop {

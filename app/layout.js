@@ -46,6 +46,7 @@ const siteSchema = {
       url: abs("/"),
       logo: abs("/logo-mark.svg"),
       email: SITE.email,
+      sameAs: Object.values(SITE.socials),
       contactPoint: { "@type": "ContactPoint", email: SITE.email, contactType: "customer support", availableLanguage: ["English", "Hindi"] },
     },
     {
