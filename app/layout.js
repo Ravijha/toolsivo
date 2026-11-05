@@ -92,9 +92,7 @@ export default function RootLayout({ children }) {
         />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <JsonLd data={siteSchema} />
-        {SITE.adsenseClient && (
-          <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${SITE.adsenseClient}`} crossOrigin="anonymous" />
-        )}
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6822789437571390" crossOrigin="anonymous" />
       </head>
       <body>
         <div className="bg-aurora" />
