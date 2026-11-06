@@ -6,7 +6,7 @@ import PrintDoc, { esc, usePersist } from "@/components/PrintDoc";
 let uid = 1000;
 const nid = () => ++uid;
 const EXAMPLE = {
-  name: "Aarav Sharma", title: "Senior Frontend Developer", email: "aarav.sharma@example.com", phone: "+91 00000 00000", location: "Pune, India",
+  name: "Your Name", title: "Senior Frontend Developer", email: "your.name@example.com", phone: "+91 00000 00000", location: "Pune, India",
   links: "linkedin.com/in/your-profile\ngithub.com/your-username",
   summary: "Frontend developer with 6+ years of experience building fast, accessible web applications with React and TypeScript. Led a team of 4 to rebuild a checkout flow that lifted conversion by 18%.",
   experience: [
@@ -16,7 +16,7 @@ const EXAMPLE = {
   education: [{ id: 3, degree: "B.Tech, Computer Science", school: "Sample Institute of Technology", year: "2019", score: "CGPA 8.6" }],
   skills: "React, TypeScript, JavaScript, Next.js, HTML, CSS, Tailwind, Redux, Jest, Git, Accessibility, Performance optimisation",
   projects: [{ id: 4, name: "Open-source date picker", link: "github.com/your-username/date-picker", desc: "Lightweight accessible date picker with 1,200+ GitHub stars." }],
-  certs: "AWS Certified Cloud Practitioner (2023)",
+  certs: "Sample Cloud Certification (2023)",
   languages: "English, Hindi, Marathi",
   template: "modern", color: "#2563eb",
 };

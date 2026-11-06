@@ -10,7 +10,7 @@ const SAMPLE = `{
   "active": true,
   "rating": 4.9,
   "tags": ["tools", "free"],
-  "owner": { "name": "Asha", "email": "asha@example.com", "phone": null },
+  "owner": { "name": "Sample User", "email": "user@example.com", "phone": null },
   "tools": [
     { "slug": "merge-pdf", "popular": true, "uses": 1520 },
     { "slug": "json-formatter", "uses": 980, "beta": false }

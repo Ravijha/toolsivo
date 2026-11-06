@@ -16,15 +16,15 @@ const SHEETS = {
 };
 
 // Fictional sample addresses (placeholder building and street names)
-const SAMPLE = `Ms. Ananya Iyer
+const SAMPLE = `Ms. Recipient Name A
 Flat 101, Sample Residency
 Example Road, Bengaluru 560001
 
-Mr. Rahul Mehta
+Mr. Recipient Name B
 Flat 202, Demo Heights
 Sample Street, Mumbai 400001
 
-Dr. Kavita Rao
+Dr. Recipient Name C
 House 3, Placeholder Lane
 Test Nagar, New Delhi 110001`;
 

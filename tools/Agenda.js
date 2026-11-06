@@ -10,13 +10,13 @@ const toMin = (t) => { const [h, m] = t.split(":").map(Number); return h * 60 + 
 const fmt = (m) => { m = ((m % 1440) + 1440) % 1440; const h = Math.floor(m / 60), mm = m % 60; return `${h % 12 || 12}:${String(mm).padStart(2, "0")} ${h < 12 ? "AM" : "PM"}`; };
 
 export default function Agenda() {
-  const [d, setD] = useState({ title: "Q4 Product Planning Meeting", date: new Date().toISOString().slice(0, 10), start: "10:00", place: "Conference Room B / Google Meet link", organiser: "Priya Sharma", attendees: "Priya Sharma, Rahul Mehta, Ananya Iyer, Vikram Singh", goal: "Agree the Q4 roadmap priorities and owners.", color: "#0ea5e9" });
+  const [d, setD] = useState({ title: "Q4 Product Planning Meeting", date: new Date().toISOString().slice(0, 10), start: "10:00", place: "Conference Room B / video call link", organiser: "Organiser Name", attendees: "Organiser Name, Attendee One, Attendee Two, Attendee Three", goal: "Agree the Q4 roadmap priorities and owners.", color: "#0ea5e9" });
   const [items, setItems] = useState([
-    item("Welcome and objectives", "Priya", 5),
-    item("Review of Q3 results", "Rahul", 15, "Key metrics and lessons learned"),
-    item("Q4 roadmap proposals", "Ananya", 25, "Shortlist the top 5 initiatives"),
-    item("Budget and resourcing", "Vikram", 15),
-    item("Decisions, owners and next steps", "Priya", 10),
+    item("Welcome and objectives", "Organiser", 5),
+    item("Review of Q3 results", "Attendee One", 15, "Key metrics and lessons learned"),
+    item("Q4 roadmap proposals", "Attendee Two", 25, "Shortlist the top 5 initiatives"),
+    item("Budget and resourcing", "Attendee Three", 15),
+    item("Decisions, owners and next steps", "Organiser", 10),
   ]);
   const set = (k) => (e) => setD((s) => ({ ...s, [k]: e.target.value }));
   const up = (id, k, v) => setItems((I) => I.map((i) => (i.id === id ? { ...i, [k]: v } : i)));

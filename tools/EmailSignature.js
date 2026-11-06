@@ -62,7 +62,7 @@ export default function EmailSignature() {
         <div className="panel" style={{ background: "#fff", color: "#111", padding: 0, overflow: "hidden" }}>
           <div style={{ padding: "10px 16px", borderBottom: "1px solid #eee", fontSize: 13, color: "#666" }}>New message · <b style={{ color: "#333" }}>Preview</b></div>
           <div style={{ padding: 22 }}>
-            <p style={{ fontFamily: f, fontSize: 14, color: "#333", marginBottom: 18 }}>Hi Rahul,<br /><br />Thanks for your time today. Please find the proposal attached.<br /><br />Best regards,</p>
+            <p style={{ fontFamily: f, fontSize: 14, color: "#333", marginBottom: 18 }}>Hi there,<br /><br />Thanks for your time today. Please find the proposal attached.<br /><br />Best regards,</p>
             <div ref={box} dangerouslySetInnerHTML={{ __html: html }} />
           </div>
         </div>

@@ -14,7 +14,7 @@ export default function SplitBill() {
   const [service, setService] = useState("0");
   const [tip, setTip] = useState("10");
   const [roundUp, setRoundUp] = useState(true);
-  const [people, setPeople] = useState(() => ["Aarav", "Diya", "Kabir", "Meera"].map(person));
+  const [people, setPeople] = useState(() => ["Person A", "Person B", "Person C", "Person D"].map(person));
   const [items, setItems] = useState(() => [
     { id: ++uid, name: "Paneer tikka", price: "420", who: [1, 2, 3, 4] },
     { id: ++uid, name: "Butter chicken", price: "520", who: [1, 3] },

@@ -33,11 +33,11 @@ const toCsv = (rows) => rows.map((r) => r.map((c) => (/[",\n]/.test(c) ? `"${c.r
 const isNum = (s) => s !== "" && !isNaN(+s.replace(/,/g, ""));
 
 const SAMPLE = `Name,City,Tool,Uses,Joined
-Ananya Iyer,Bengaluru,Merge PDF,142,2026-01-14
-Rahul Mehta,Mumbai,EMI Calculator,87,2025-11-02
-"Kavita Rao, MD",Delhi,Image Compressor,310,2026-03-21
-Arjun Nair,Kochi,JSON Formatter,56,2026-05-09
-Sara Khan,Hyderabad,QR Code Generator,198,2026-02-27`;
+User One,Bengaluru,Merge PDF,142,2026-01-14
+User Two,Mumbai,EMI Calculator,87,2025-11-02
+"User Three, MD",Delhi,Image Compressor,310,2026-03-21
+User Four,Kochi,JSON Formatter,56,2026-05-09
+User Five,Hyderabad,QR Code Generator,198,2026-02-27`;
 
 export default function CsvViewer() {
   const [raw, setRaw] = useState(null);
