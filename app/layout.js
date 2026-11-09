@@ -70,6 +70,8 @@ export const viewport = {
 
 const GA_ID = "G-3EHG6T7BWM";
 
+const httpsRedirectScript = `(function(){var l=location;if(l.protocol==='http:'&&!/^(localhost|127\\.0\\.0\\.1|\\[::1\\])$/.test(l.hostname)){l.replace('https://'+l.host+l.pathname+l.search+l.hash)}})()`;
+
 const themeScript =`(function(){try{var t=localStorage.getItem('toolsivo-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t}catch(e){}})()`;
 
 export default function RootLayout({ children }) {
@@ -90,6 +92,10 @@ export default function RootLayout({ children }) {
   gtag('config', '${GA_ID}');`,
           }}
         />
+        {/* Fallback HTTP → HTTPS redirect (the primary redirect is GitHub Pages "Enforce HTTPS").
+            Kept after the gtag scripts: AdSense inserts its own script before the first <script> in the
+            page, and if this one were first that would cause a hydration mismatch. */}
+        <script dangerouslySetInnerHTML={{ __html: httpsRedirectScript }} />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <JsonLd data={siteSchema} />
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6822789437571390" crossOrigin="anonymous" />
