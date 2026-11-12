@@ -1,4 +1,5 @@
 import { Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -98,7 +99,6 @@ export default function RootLayout({ children }) {
         <script dangerouslySetInnerHTML={{ __html: httpsRedirectScript }} />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <JsonLd data={siteSchema} />
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6822789437571390" crossOrigin="anonymous" />
       </head>
       <body>
         <div className="bg-aurora" />
@@ -107,6 +107,14 @@ export default function RootLayout({ children }) {
         <Footer />
         <CommandPalette />
         <Toaster />
+        {/* Google AdSense — loaded after hydration so the script it injects into <head> can't cause a hydration mismatch */}
+        <Script
+          id="adsbygoogle-init"
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6822789437571390"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
